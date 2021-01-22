@@ -1,0 +1,115 @@
+% !TeX root = ./main.tex
+
+% 论文基本信息配置
+
+\sysusetup{
+  %******************************
+  % 注意：
+  %   1. 配置里面不要出现空行
+  %   2. 不需要的配置信息可以删除
+  %   3. 建议先阅读文档中所有关于选项的说明
+  %******************************
+  %
+  output = print,
+  %
+  % 标题
+  %   可使用“\\”命令手动控制换行
+  %
+  title  = {中山大学计算机学院研究生学位论文 \LaTeX{} 模板},
+  title*  = {Title in English},
+  %
+  % 学位
+  % 硕士 或 博士
+  degree-name  = {硕士},
+  %
+  % 培养单位
+  %   填写所属院系的全名
+  %
+  department = {计算机学院},
+  %
+  % 工程硕士的名称应为 "工程硕士 [专业名称]"
+  discipline  = {[专业名称]},
+  %
+  % 姓名
+  author  = {[学生姓名]},
+  %
+  % 指导教师
+  supervisor  = {[姓名]},
+  supervisor-title  = {[职称]},
+  %
+  % 答辩委员会成员
+  committee-chair = {},
+  committee-member1 = {},
+  committee-member2 = {},
+  committee-member3 = {},
+  committee-member4 = {},
+  committee-member5 = {},
+  % 日期
+  %   使用 ISO 格式；默认为当前时间
+  %
+  % date = {2020-12-01},
+  %
+  %
+  % 密级: 公开
+  secret-level = {公开},
+  % secret-year  = {10},
+  %
+  % 
+  series-id = {[学号]},
+}
+
+% 载入所需的宏包
+
+% 可以使用 nomencl 生成符号和缩略语说明
+% \usepackage{nomencl}
+% \makenomenclature
+
+% 表格加脚注
+\usepackage{threeparttable}
+
+% 表格中支持跨行
+\usepackage{multirow}
+
+% 固定宽度的表格。放在 hyperref 之前的话，tabularx 里的 footnote 显示不出来。
+% \usepackage{tabularx}
+
+% 跨页表格
+% \usepackage{longtable}
+
+% 量和单位
+\usepackage{siunitx}
+
+% 定理类环境宏包
+\usepackage{amsthm}
+% 也可以使用 ntheorem
+% \usepackage[amsmath,thmmarks,hyperref]{ntheorem}
+
+% 参考文献使用 BibTeX + natbib 宏包
+% 顺序编码制
+\usepackage[sort]{natbib}
+\bibliographystyle{sysuthesis-numeric}
+
+% 著者-出版年制
+% \usepackage{natbib}
+% \bibliographystyle{sysuthesis-author-year}
+
+% 本科生参考文献的著录格式
+% \usepackage[sort]{natbib}
+% \bibliographystyle{sysuthesis-bachelor}
+
+% 参考文献使用 BibLaTeX 宏包
+% \usepackage[backend=biber,style=sysuthesis-numeric]{biblatex}
+% \usepackage[backend=biber,style=sysuthesis-author-year]{biblatex}
+% \usepackage[backend=biber,style=apa]{biblatex}
+% \usepackage[backend=biber,style=mla-new]{biblatex}
+% 声明 BibLaTeX 的数据库
+% \addbibresource{ref/refs.bib}
+
+% 定义所有的图片文件在 figures 子目录下
+\graphicspath{{figures/}}
+
+% 数学命令
+\newcommand\dif{\mathop{}\!\mathrm{d}}  % 微分符号
+
+% hyperref 宏包在最后调用
+\usepackage{hyperref}

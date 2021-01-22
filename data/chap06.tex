@@ -1,0 +1,52 @@
+% TEX-root = ../main.tex
+\chapter{\LaTeX{} 模板使用指南}
+
+\section{环境配置}
+\begin{enumerate}
+    \item 本地环境\\
+    下载安装最新版 TexLive 或 MikTeX。
+    \item 在线环境\\
+    Overleaf。
+\end{enumerate}
+
+\section{编辑文件}
+\begin{enumerate}
+    \item \texttt{sysusetup.tex}: 填写标题、作者、导师、学位名称等信息。
+    \item \texttt{data/abstract.tex}: 填写中英文摘要。
+    \item \texttt{data/denotation.tex}: 填写符号与缩略语，注意按音序排序。
+    \item \texttt{data/chapxx.tex}: 各章内容，如有章节增删请在\texttt{main.tex}中修改相关记录。
+    \item \texttt{data/appendix.tex}: 附录。
+    \item \texttt{data/works.tex}: 学术成果。
+    \item \texttt{data/acknowledgements.tex}: 致谢。
+    \item \texttt{ref/refs.bib}: 引文数据库。
+    \item \texttt{main.tex}: 主文件，用于控制文档选项（字体，学位类别）:
+    \begin{enumerate}
+        \item 学术硕士: \verb|\documentclass[degree=master]{sysuthesis}|;
+        \item 专业硕士: \verb|\documentclass[degree=master,degree-type=professional]{sysuthesis}|;
+        \item 博士: \verb|\documentclass[degree=doctor]{sysuthesis}|。
+    \end{enumerate}
+    指定论文要包括的部分，如摘要、目录、正文各章节、附录、引文数据库等等。
+    （注意插入每章内容之后要加 \verb|\cleardoublepage| 以保证在打印版中各章都从右边开始）:
+    \begin{verbatim}
+    \input{data/chap01}
+    \cleardoublepage
+    \input{data/chap02}
+    \cleardoublepage
+    \input{data/chap03}
+    \cleardoublepage
+    \end{verbatim}
+\end{enumerate}
+
+除上述文件外，
+如无必要请勿修改其他重要文件，
+如 \verb|sysuthesis-numeric.bst|（用于控制引文格式），
+\verb|sysuthesis.cls| （文档类，用于控制文档显示的样式）等。
+
+\section{编译文档}
+
+可直接在命令行中使用 \texttt{latexmk} 命令，也可自己在编辑器中设置快捷键等。
+
+为保证字体严格符合学校规定，建议终版文档在 Windows 平台上编译或在其他平台上安装 Windows 字体并修改\texttt{main.tex}中的文档选项，指定使用 Windows 字体。
+\begin{verbatim}
+    \documentclass[degree=doctor, fontset=windows]{sysuthesis}
+\end{verbatim}
