@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: sysuthesis-numeric.bst
+A level-1 auxiliary file: bu.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ref/refs.bib
+Warning--empty year in hedman2018deep
+Warning--empty year in hedman2018deep
+Warning--empty year in hedman2018deep
+You've used 74 entries,
+            5246 wiz_defined-function locations,
+            1418 strings with 22086 characters,
+and the built_in function-call counts, 791491 in all, are:
+= -- 14960
+> -- 94045
+< -- 117848
++ -- 32268
+- -- 5648
+* -- 4288
+:= -- 109459
+add.period$ -- 269
+call.type$ -- 74
+change.case$ -- 148
+chr.to.int$ -- 28942
+cite$ -- 77
+duplicate$ -- 1801
+empty$ -- 4978
+format.name$ -- 3430
+if$ -- 205442
+int.to.chr$ -- 3
+int.to.str$ -- 75
+missing$ -- 0
+newline$ -- 478
+num.names$ -- 269
+pop$ -- 42652
+preamble$ -- 1
+purify$ -- 74
+quote$ -- 0
+skip$ -- 82692
+stack$ -- 0
+substring$ -- 35735
+swap$ -- 80
+text.length$ -- 1690
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 862
+warning$ -- 3
+while$ -- 2074
+width$ -- 0
+write$ -- 1126
+(There were 3 warnings)

@@ -1,0 +1,83 @@
+% TEX-root = ../main.tex
+\chapter{总结与展望}
+本章将总结本文现有的工作，并对未来的可能的研究方向进行展望。
+\section{总结}
+当前虚拟现实、自由视点视频、街景地图等领域对新视图合成存在大量需求，通过对现有的相关系统进行调研发现存在以下问题：1) 当前市场上的三维渲染的软件难以根据稀疏视图，在任意视角下渲染出高质量的新视图；
+2) 目前的三维渲染系统大都需要根据深度信息进行三维建模，这需要使用 RGBD 相机，对硬件设备要求较高；
+3) 目前市场上还没有直接可应用的面向快速新视图合成的交互系统；4) 现有的新视图合成模型需要在空间内进行大量采样，计算时间成本较高，难以完成 PC 端的交互需求。在这样的背景下，本文结合 NeRF 的技术以及查询表缓存加速的相关技术实现了快速合成新视图的神经辐射场渲染具体方法，并设计和实现了一个快速新视图合成的系统，完成了 PC 客户端的相关应用。
+
+本文的主要工作与贡献如下：
+
+\begin{enumerate}
+	\item [1)] 本文基于 NeRF 预训练的网络预测的体密度信息构建出一个可以表征在物体内外的查询表结构，这一方面直接减少了查询表的尺寸，另一方面该查询表可以直接为空间内任意一点提供 NeRF 网络中间层的特征，这加快了神经网络的正向传播速度。
+	\item [2)] 在缓存了上述查询表的基础上，本文改进了 NeRF 的采样过程，通过查询表找到光线上离物体表面最近的内点，使得 NeRF 可以仅在此点附近进行采样，从而不必再使用两个网络，这显著加速了 NeRF。
+	\item [3)] 为了补偿查询表分辨率不够带来的精度损失，本文对 F-NeRF 进行再训练，将渲染质量提升到原 NeRF 的水平。
+	\item [4)] 本文在公开的数据集上做了大量对比验证实验。在公开合成数据集 Synthetic-NeRF 和真实场景数据集 LLFF-NeRF 上，与 NeRF 相比，我们提出的 F-NeRF 方法分别加速 3.2 倍和 3.4倍。 
+	\item [5)] 本文设计并实现了基于 NeRF 的快速新视图合成的系统，完成了相应的 PC 端的应用，并对该系统进行了详细的需求分析以及架构设计，最后将本文的方法实现并部署到了 PC 端，经过详细地测试，该系统满足实际应用需求。
+\end{enumerate}
+
+
+\section{展望}
+本文实现的基于神经辐射场的快速新视图合成系统保留了人机交互的自然、简洁等优点，并保证了交互的一致性与实时性，具有一定的应用前景。但系统仍存在一些值得思考与完善的地方：
+\begin{enumerate}
+	\item 本文基于 NeRF 改进的快速新视图合成方法本质还是假设输入图像为静态图像，然而在真实场景里，这是很难做到的。因此在未来希望通过改进算法使得系统输入动态图像也可以合成较高质量的视图。
+	\item 目前本系统的方法使用的查询表提取到的物体几何信息不够准确，这是因为缓存的点过于稀疏，对于空洞较多的场景渲染出的新视图质量不够好。因此在未来可以借助 mesh 缓存场景的几何信息，使用 ray tracing 的方法去找到物体表面，从而可以更好地优化采样点的位置。
+	\item 由于测试的时候还是使用了神经网络，因此本系统还不足以做到实时的合成新视图。因此未来可以转换思路，从缓存网络参数到直接缓存输出的颜色和体密度，这样可以让测试的过程与神经网络解耦，从而地合成新视图。
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{enumerate}
+%     \item \texttt{sysusetup.tex}: 填写标题、作者、导师、学位名称等信息。
+%     \item \texttt{data/abstract.tex}: 填写中英文摘要。
+%     \item \texttt{data/denotation.tex}: 填写符号与缩略语，注意按音序排序。
+%     \item \texttt{data/chapxx.tex}: 各章内容，如有章节增删请在\texttt{main.tex}中修改相关记录。
+%     \item \texttt{data/appendix.tex}: 附录。
+%     \item \texttt{data/works.tex}: 学术成果。
+%     \item \texttt{data/acknowledgements.tex}: 致谢。
+%     \item \texttt{ref/refs.bib}: 引文数据库。
+%     \item \texttt{main.tex}: 主文件，用于控制文档选项（字体，学位类别）:
+%     \begin{enumerate}
+%         \item 学术硕士: \verb|\documentclass[degree=master]{sysuthesis}|;
+%         \item 专业硕士: \verb|\documentclass[degree=master,degree-type=professional]{sysuthesis}|;
+%         \item 博士: \verb|\documentclass[degree=doctor]{sysuthesis}|。
+%     \end{enumerate}
+%     指定论文要包括的部分，如摘要、目录、正文各章节、附录、引文数据库等等。
+%     （注意插入每章内容之后要加 \verb|\cleardoublepage| 以保证在打印版中各章都从右边开始）:
+%     \begin{verbatim}
+%     \input{data/chap01}
+%     \cleardoublepage
+%     \input{data/chap02}
+%     \cleardoublepage
+%     \input{data/chap03}
+%     \cleardoublepage
+%     \end{verbatim}
+% \end{enumerate}
+
+% 除上述文件外，
+% 如无必要请勿修改其他重要文件，
+% 如 \verb|sysuthesis-numeric.bst|（用于控制引文格式），
+% \verb|sysuthesis.cls| （文档类，用于控制文档显示的样式）等。
+
+% \section{编译文档}
+
+% 可直接在命令行中使用 \texttt{latexmk} 命令，也可自己在编辑器中设置快捷键等。
+
+% 为保证字体严格符合学校规定，建议终版文档在 Windows 平台上编译或在其他平台上安装 Windows 字体并修改\texttt{main.tex}中的文档选项，指定使用 Windows 字体。
+% \begin{verbatim}
+%     \documentclass[degree=doctor, fontset=windows]{sysuthesis}
+% \end{verbatim}

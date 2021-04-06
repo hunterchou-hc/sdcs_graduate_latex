@@ -1,50 +1,70 @@
-% !TeX root = ../thuthesis-example.tex
+% !TeX root = ../main.tex
 
 % 中英文摘要和关键字
 
 \begin{abstract}\label{abstract}
-  \textbf{字数规定: 硕士学位论文摘要一般不超过1200字, 博士学位论文一般不超过2000字}  
+新视图合成作为计算机视觉与计算机图形学交叉领域的任务，一直是工业界和学术界研究的经典问题。新视图合成任务是通过给定的单张或者一系列的相机拍摄的三维场景的图像，来合成新视角下的高质量的图像。在很多领域，例如增强现实、虚拟现实、3D 游戏、街景地图等，用户都有想从任意视角下快速观测到三维场景的需求。此外，一个典型的应用场景是自由视点视频，用户可以通过交互控制视点并可以从任意 3D 位置生成动态场景的新视图，在这种情形下渲染速度的快慢直接影响到用户体验。因此，可以在任意视角下快速合成新视图的系统具有的重要的应用意义。但目前的新视图合成领域存在着以下的问题：1) 目前市场上还没有直接可应用的面向快速新视图合成的交互系统；2) 现有的新视图合成模型，计算时间成本较高，难以完成 PC 端的交互需求。本文正是为解决上述需求构建了一个基于神经辐射场的快速新视图合成系统。
 
-  论文的摘要是对论文研究内容和成果的高度概括。
-  摘要应对论文所研究的问题及其研究目的进行描述，对研究方法和过程进行简单介绍，对研究成果和所得结论进行概括。
-  摘要应具有独立性和自明性，其内容应包含与论文全文同等量的主要信息。
-  使读者即使不阅读全文，通过摘要就能了解论文的总体内容和主要成果。
+最近，基于 NeRF 的神经渲染方法在新视图合成任务上表现十分惊艳，是目前最佳的方法。
+%NeRF 的渲染方法是通过在相机光线采样大量点并送入神经网络中预测出一组颜色和体密度，最后使用经典的体绘制技术对上述颜色和体密度进行近似积分计算出 2D 图像上对应像素的颜色。由于场景中空的地方对计算颜色的积分运算没有贡献，因此如何获取表面附近的高贡献采样点是一难点。具体地，NeRF 为了获取高贡献的采样点，使用了 coarse 和 fine 两个神经网络，利用 coarse 网络对均匀采样的粗采样点所预测的体密度和颜色去估计体密度随深度变化的分布，并利用此分布再进行细采样并将细采样点送入到 fine 网络。
+为了获取对渲染图象贡献高的采样点，NeRF 使用了分层采样的方法，通过 coarse 网络的输出估计采样点贡献的大致分布，基于此分布获得较好的采样点送入 fine 网络得到颜色和体密度，最终使用经典体绘制的方法进行数值积分计算出 2D 图像上对应像素的颜色。
+由于真实场景中自由空间和被遮挡区域对渲染图像没有贡献，因此如何快速获取表面附近的高贡献采样点是一难点。
+但是，由于大量的采样点需要经过上述两个网络，这使得新视图的渲染过程耗费较长的时间，难以满足本文系统的需求，因此需要对测试时间进行优化，本文正是要通过改进 NeRF 的采样方式来减少一个网络的开销从而解决渲染速度过慢的问题。
 
-  论文摘要的书写应力求精确、简明。
-  切忌写成对论文书写内容进行提要的形式，尤其要避免“第 1 章……；第 2 章……；……”这种或类似的陈述方式。
+值得注意的是，NeRF 具有类似于 PointNet 的逐点网络结构，以 justlookup 为代表的研究工作已经证明了对逐点网络可以去构建查询表来加速网络的前向传播并通过对近似特征再学习的策略来维持模型精度不损失。针对上述问题，本文将 NeRF 技术和查询表技术进行有机融合，设计并实现了基于神经辐射场的快速新视图合成系统。具体地，本文的主要工作与贡献如下：1) 使用预训练的 NeRF 网络，构建出一个可以表征在物体内外的查询表，该查询表可以直接为空间内任意一点提供 NeRF 网络中间层的特征，这加快了神经网络的正向传播速度。
+2) 在缓存了上述查询表的基础上，本文改进了 NeRF 的采样过程，通过查询表找到光线上离物体表面最近的内点，使得 NeRF 可以仅在此点附近进行采样，从而不必再使用两个网络，这显著加速了 NeRF，同时这正是本文的核心贡献。3) 本文设计并实现了基于 NeRF 的快速新视图合成的系统，完成了相应的 PC 端的应用，并对该系统进行了详细的需求分析以及架构设计，最后将本文的方法实现并部署到了 PC 端，经过详细地测试，本文方法在合成场景和真实场景下的渲染速度对 NeRF 分别加速3.2倍和3.4倍，该系统满足实际应用需求。 
 
-  关键词是为了文献标引工作、用以表示全文主要内容信息的单词或术语。
-  关键词 $3 \sim 5$ 个，每个关键词中间用逗号分隔。
+
+% 学术论文版本
+
+% 新视图合成作为计算机视觉与计算机图形学交叉领域的任务，一直是学术界研究的经典问题。新视图合成任务是通过给定的单张或者一系列的相机拍摄的三维场景的图像，来合成高保真的新视角下的图像，这在实际生活中有着很强的应用意义。近年来，尤其是2020年以来，基于神经辐射场 (Neural Radiance Fields, NeRF) 的方法在新视图合成这一领域取得了许多突破性的进展。NeRF 为了学习到一个高质量三维场景所对应的神经辐射场，在对光线采样的过程中需要使用两个神经网络，分别是粗网络和细网络，利用粗网络的采样点所预测的体密度和颜色去估计体密度随深度变化的分布，并利用此分布再进行细采样并将细采样点送入到细网络，训练过程要求优化上述两个网络，这使得新视图的渲染过程耗费较长的时间。此外，NeRF具有类似于PointNet, PointNet++等工作逐点网络结构，并使用了较多的全连接层，这同样也增加了合成新视图的开销，以justlookup为代表的研究工作已经证明了对逐点网络可以去构建查询表来加速网络的前向传播并通过对近似特征再学习的策略来维持模型精度不损失。
+
+% 针对上述问题，本文根据 NeRF 的特性提出了基于神经辐射场进行加速合成新视图的框架， 将其命名为 F-NeRF，通过 NeRF 预测的体密度有效地提取到物体的几何结构，这一方面辅助了获取物体表面附近的对计算颜色有高贡献的采样点，另一方面减少了一个网络的开销，同时也简化了网络，这在一定程度上加快了 NeRF。具体地，本文的主要工作与贡献如下：1) 本文基于 NeRF 预训练的网络预测的体密度信息构建出一个查询表结构，该查询表预存的是物体内部的点及其相应的特征（假设负值体密度对颜色的计算无贡献，定义为物体外），根据该表可以判断任意三维坐标是否位于物体内部，此外它还简化了 NeRF 的网络结构，加快了合成新视图的过程。
+% 2) 通过查询表对粗网络均匀采样点进行查询，找到光线上离物体表面最近的内点，以此点为基准在左右两侧进行二次均匀采样并送入到粗网络，这样可以在推理过程中不必再使用细网络。3) 为了补偿 1) 中关于负值体密度为物体表面外这一强假设带来的精度损失，对 F-NeRF 进行微调（再学习）。4) 本文设计并实现了基于 NeRF 的快速新视图合成的系统，将本文的方法用于实际的基于移动端三维传感器的新视图合成的场景中。
+
+% 本文在公开的合成数据集和真实数据集上做了大量对比验证实验。首先，在公开合成数据集 Synthetic-NeRF 上，与 NeRF 相比，我们提出的 F-NeRF 方法平均渲染一张图像快 2.2 倍，此外，质量方面，PSNR平均上升 \SI{0.28}{dB}, SSIM 平均上升 0.002 ，LPIPS 平均增大 0.011 。 其次，在公开的真实数据集 LLFF-NeRF 上，F-NeRF 平均推理一张图像比 NeRF 快 2.4 倍，同时在 PSNR，SSIM，LPIPS 上分别上升 \SI{0.37}{dB}，上升 0.025 ，下降 0.024。
+
+% 综上所述，本文提出的 F-NeRF 可以在几乎不损失精度的情况下对 NeRF 的渲染过程进行加速，为体绘制类似的工作提供了新的采样思路。
+
+
+
+% 工程论文版本
+
+%新视图合成作为计算机视觉与计算机图形学交叉领域的任务，一直是工业界和学术界研究的经典问题。新视图合成任务是通过给定的单张或者一系列的相机拍摄的三维场景的图像，来合成新视角下的高质量的图像。在很多领域，例如增强现实、虚拟现实、3D 游戏、街景地图等，用户都有想从任意视角下快速观测到三维场景的需求。此外，一个典型的应用场景是自由视点视频，用户可以通过交互控制视点并可以从任意 3D 位置生成动态场景的新视图，在这种情形下渲染速度的快慢直接影响到用户体验。因此，可以在任意视角下快速合成新视图的系统具有的重要的应用意义。但目前的新视图合成领域存在着以下的问题：1) 目前市场上还没有直接可应用的面向快速新视图合成的交互系统；2) 现有的新视图合成模型，计算时间成本较高，难以完成 PC 端的交互需求。本文正是根据该领域的上述问题构建了一个基于神经辐射场的快速新视图合成系统。
+%
+%最近，基于 NeRF 的神经渲染方法在新视图合成任务上表现十分惊艳，是目前最佳的方法。但是，由于同时优化两个深度神经网络，并且需要对空间进行大量采样，NeRF 的时间开销比较大，因此需要在时间上对其进行优化，这也是本文要解决的问题
+%
+%值得注意的是，NeRF 具有类似于 PointNet 的逐点网络结构，以justlookup为代表的研究工作已经证明了对逐点网络可以去构建查询表来加速网络的前向传播并通过对近似特征再学习的策略来维持模型精度不损失。针对上述问题，本文将 NeRF 技术和查询表技术进行有机融合，设计并实现了基于神经辐射场的快速新视图合成系统。具体地，本文的主要工作与贡献如下：1) 使用预训练的 NeRF 网络，构建出一个包含几何信息的查询表，简化了 NeRF 的网络结构，加快了合成新视图的过程。
+%2) 使用缓存的查询表改进了 NeRF 的采样过程，减少了一个网络的开销，显著加速了 NeRF。3) 本文设计并实现了基于 NeRF 的快速新视图合成的系统，完成了相应的 PC 端的应用，并对该系统进行了详细的需求分析以及架构设计，最后将本文的方法实现并部署到了 PC 端，经过详细地测试，本文方法在真实场景下的渲染速度比 NeRF 快2.4倍，该系统满足实际应用需求。 
 
   % 关键词用“英文逗号”分隔，输出时会自动处理为正确的分隔符
   \sysusetup{
-    keywords = {关键词 1, 关键词 2, 关键词 3, 关键词 4, 关键词 5},
+    keywords = {神经辐射场, 新视图合成, 神经渲染, 缓存, 查询表},
   }
 \end{abstract}
 
 \begin{abstract*}
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
-    English abstract.
+Novel view synthesis, a cross-field task between computer vision and computer graphics, has always been a classic problem in  industry and academia. Novel view synthesis is to synthesize high-quality images from a new view through one or more given images of a 3D scene captured by a camera. In many fields, such as Augmented Reality, Virtual Reality, 3D games, Street View Maps, etc., users have the demand to quickly observe 3D scenes from any view. In addition, a typical application scenario is Free Viewpoint Video, in which users can interactively control the viewpoint and generate a novel view of the dynamic scene from any 3D position. In this case, the rendering speed directly affects the Quality of Experience. Therefore, the system that can quickly synthesize any novel views has important application significance. However, the current novel view synthesis has the following problems: 1) there is no directly applicable interactive system for fast novel view synthesis on the market; 2) the existing novel view synthesis models have high computational time cost, and it is difficult to meet the interaction requirements of PC. In this paper, we construct a fast novel view synthesis system based on neural radiance fields to meet the above requirements.
+
+Recently, the NeRF-based neural rendering method performs amazingly on the task of novel view synthesis, and it is currently the best method.  
+In order to obtain the high-contribution sampling points to the rendered image, NeRF uses the hierarchical volume sampling, estimates the approximate distribution of the contribution of the sampling points through the output of the coarse network, obtains the better sampling points based on this distribution, and then sends them to the fine network to get the color and volume density. 
+Because the free space and the occluded regions in the real scene do not contribute to the rendered image, it is a difficult problem to obtain high-contribution sampling points quickly near the surface.
+Finally, NeRF uses the classical volume rendering to perform numerical integration to calculate the color of the corresponding pixel on the 2D image. However, since plenty of sampling points need to pass through the above two networks, it takes a long time to render the novel view which is difficult to meet the requirements of the system in this paper. And therefore, we ought to optimize the test time. In this paper, we aim to reduce the overhead of one network by improving the sampling method of NeRF to solve the problem of slow rendering speed.
+
+It is worth noting that NeRF has a point-wise network structure similar to PointNet. Research work represented by justlookup has proved that lookup tables can be built for a point-wise network to accelerate the forward propagation of the network and maintain the accuracy of the model through the strategy of relearning approximate features. For the above problems, we organically integrate NeRF technology and lookup table technology to design and implement a fast novel view synthesis system based on neural radiance fields. Specifically, our main work and contributions are as follows: 1) Using the pre-trained NeRF network, we construct a lookup table that can be characterized inside and outside the object. The lookup table can directly provide the feature map of the NeRF network middle layer at any point in the space, which speeds up the forward propagation speed of the neural network. 2) On the basis of caching the above lookup table, we improve the sampling process of NeRF. The inner point closest to the surface of the object on the light is found through the lookup table, so that NeRF can just sample near this point, eliminating the need to use two networks which significantly accelerates NeRF. And meantime this is the core contribution of this paper. 3) In this paper, we design and implement a fast novel view synthesis system based on NeRF, and complete the corresponding PC application, and then perform a detailed requirements analysis and architecture design for the system. At last, the method in this paper is implemented and deployed to the PC. After detailed testing, the rendering speed of this method in synthetic scenes and real scenes accelerates NeRF by 3.2 times and 3.4 times, respectively, and the system meets actual application requirements.
+
+
+%New view synthesis, a task in the cross-field of computer vision and computer graphics, has always been a classic problem in academic research. Novel view synthesis is to synthesize high fidelity images from a new view through one or more given images of a 3D scene captured by a camera, which has great application significance in real life. In recent years, especially since 2020, methods based on Neural Radiance Fields (NeRF) have made many breakthroughs in the field of novel view synthesis. In order to learn the neural radiance fields of a high-quality three-dimensional scene, NeRF needs to use two neural networks during sampling on a camera ray, namely the coarse network and the fine network. NeRF utilizes the volume density and color predicted by the sampling points of the coarse network to estimate the distribution of volume density with depth, and feeds fine points sampled by the distribution to the fine network. The above two networks are both optimized, which makes the rendering process of new views take a long time. In addition, NeRF has a point-wise network similar to PointNet or PointNet++, and plenty of fully connected layers are applied on the network , which also increases the cost of novel view synthesis. Research work represented by justlookup has proved that lookup tables can be built for a 
+%point-wise network to accelerate the forward propagation of the network and maintain the accuracy of the model through the strategy of relearning approximate features.
+%
+%For the above problems, we propose a framework for accelerating novel view synthesis based on the neural radiance fields based on the characteristics of NeRF, and name it F-NeRF. The volume density predicted by NeRF can effectively extract the geometry of the object. On the one hand, it helps to obtain the sampling points near the surface of the object that make great contributions to the calculation of the color. On the other hand, it reduces the overhead of one network, and also simplifies the network, thus speeding up the process of synthesizing novel views. Specifically, our main work and contributions are as follows: 1) we construct a lookup table based on the volume density predicted by the network pre-trained by NeRF. The lookup table stores the points inside the object and their corresponding features (Assuming that the negative volume density does not contribute to the color, it is defined as outside the object). According to the lookup table, we know whether any three-dimensional coordinates are inside the object or not. Besides, it also simplifies the NeRF network and speeds up the process of synthesizing new views. 2) Query the uniform sampling points of the coarse network through the lookup table to find the inner point closest to the surface of the object on the camera ray, and reference this point to perform uniform sampling on the left and right sides again and send them to the coarse network, in this way it is not necessary to use the fine network in the inference time. 3) In order to compensate the loss of accuracy caused by the strong assumption that the negative volume density is outside the surface of the object in 1), fine-tuning (retraining) of F-NeRF is carried out. 4) we design and make a fast novel view synthesis system based on NeRF, and apply the methods in this paper to the real scene of novel view synthesis based on mobile 3D sensors.
+%
+%Extensive experiments on the synthetic-NeRF data set and the real-sense data set. First of all, on the synthetic data set Synthetic-NeRF, our proposed F-NeRF method renders an image 2.2 times faster than NeRF on average. Furthermore, in terms of quality, PSNR is increased by \SI{0.28}{dB} on average, and SSIM increase by 0.002 on average, and LPIPS on average increase by 0.011. At last, on the real data set LLFF-NeRF, the infer time of an image under our proposed F-NeRF is 2.4 times faster than that of NeRF on average, while the PSNR, SSIM, and LPIPS are increased by 0.97 dB and 0.025, and decreased by 0.084 respectively.
+%
+%Overall, our proposed F-NeRF can accelerate the NeRF rendering process with almost no loss of accuracy, and provide a new sampling idea for similar work in volume rendering.
+
   % Use comma as seperator when inputting
   \sysusetup{
-    keywords* = {keyword 1, keyword 2, keyword 3, keyword 4, keyword 5},
+    keywords* = {Neural Radiance Fields, Novel View Synthesis, Volume Rendering, Caching, Lookup Tables},
   }
 \end{abstract*}

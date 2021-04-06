@@ -1,0 +1,580 @@
+\begin{thebibliography}{74}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Chen et~al.(1993)Chen and Williams]{chen1993view}
+Chen~S~E, Williams~L.
+\newblock View interpolation for image synthesis[C]//\allowbreak
+Whitton~M~C.
+\newblock International Conference on Computer Graphics and Interactive
+  Techniques (SIGGRAPH).
+\newblock Anaheim: {ACM}, 1993:\allowbreak 279-288.
+
+\bibitem[Riegler et~al.(2020)Riegler and Koltun]{riegler2020free}
+Riegler~G, Koltun~V.
+\newblock Free view synthesis[C]//\allowbreak
+Vedaldi~A, Bischof~H, Brox~T, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Glasgow: Springer, 2020:\allowbreak 623-640.
+
+\bibitem[Kee et~al.(2013)Kee, O'Brien, and Farid]{kee2013exposing}
+Kee~E, O'Brien~J~F, Farid~H.
+\newblock Exposing photo manipulation with inconsistent shadows[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2013, 32:\allowbreak 1-12.
+
+\bibitem[Mildenhall et~al.(2020)Mildenhall, Srinivasan, Tancik, Barron,
+  Ramamoorthi, and Ng]{mildenhall2020nerf}
+Mildenhall~B, Srinivasan~P~P, Tancik~M, et~al.
+\newblock Nerf: Representing scenes as neural radiance fields for view
+  synthesis[C]//\allowbreak
+Vedaldi~A, Bischof~H, Brox~T, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Glasgow: Springer, 2020:\allowbreak 405-421.
+
+\bibitem[Hedman et~al.()Hedman, Philip, Price, Frahm, Drettakis, and
+  Brostow]{hedman2018deep}
+Hedman~P, Philip~J, Price~T, et~al.
+\newblock Deep blending for free-viewpoint image-based rendering[J].
+\newblock {ACM} Transactions on Graphics (TOG).
+
+\bibitem[Schonberger et~al.(2016)Schonberger and
+  Frahm]{schonberger2016structure}
+Schonberger~J~L, Frahm~J~M.
+\newblock Structure-from-motion revisited[C]//\allowbreak
+Agapito~L, Berg~T, Kosecka~J, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Las Vegas: {IEEE} Computer Society, 2016:\allowbreak 4104-4113.
+
+\bibitem[Park et~al.(2019)Park, Florence, Straub, Newcombe, and
+  Lovegrove]{park2019deepsdf}
+Park~J~J, Florence~P, Straub~J, et~al.
+\newblock Deepsdf: Learning continuous signed distance functions for shape
+  representation[C]//\allowbreak
+Gupta~A, Hoiem~D, Hua~G, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Long Beach: Computer Vision Foundation / {IEEE}, 2019:\allowbreak
+  165-174.
+
+\bibitem[Zhang et~al.(2020)Zhang, Riegler, Snavely, and
+  Koltun]{zhang2020nerf++}
+Zhang~K, Riegler~G, Snavely~N, et~al.
+\newblock Nerf++: Analyzing and improving neural radiance fields[J].
+\newblock ArXiv, 2020, abs/2010.07492.
+
+\bibitem[Yen-Chen et~al.(2020)Yen-Chen, Florence, Barron, Rodriguez, Isola, and
+  Lin]{yen2020inerf}
+Yen-Chen~L, Florence~P, Barron~J~T, et~al.
+\newblock inerf: Inverting neural radiance fields for pose estimation[J].
+\newblock ArXiv, 2020, abs/2012.05877.
+
+\bibitem[Yu et~al.(2020)Yu, Ye, Tancik, and Kanazawa]{yu2020pixelnerf}
+Yu~A, Ye~V, Tancik~M, et~al.
+\newblock pixelnerf: Neural radiance fields from one or few images[J].
+\newblock ArXiv, 2020, abs/2012.02190.
+
+\bibitem[Trevithick et~al.(2020)Trevithick and Yang]{trevithick2020grf}
+Trevithick~A, Yang~B.
+\newblock Grf: Learning a general radiance field for 3d scene representation
+  and rendering[J].
+\newblock ArXiv, 2020, abs/2010.04595.
+
+\bibitem[Schwarz et~al.(2020)Schwarz, Liao, Niemeyer, and
+  Geiger]{schwarz2020graf}
+Schwarz~K, Liao~Y, Niemeyer~M, et~al.
+\newblock Graf: Generative radiance fields for 3d-aware image synthesis[J].
+\newblock ArXiv, 2020, abs/2007.02442.
+
+\bibitem[Liu et~al.(2020)Liu, Gu, Lin, Chua, and Theobalt]{liu2020neural}
+Liu~L, Gu~J, Lin~K~Z, et~al.
+\newblock Neural sparse voxel fields[J].
+\newblock ArXiv, 2020, abs/2007.11571.
+
+\bibitem[Lindell et~al.(2020)Lindell, Martel, and
+  Wetzstein]{lindell2020autoint}
+Lindell~D~B, Martel~J~N, Wetzstein~G.
+\newblock Autoint: Automatic integration for fast neural volume rendering[J].
+\newblock ArXiv, 2020, abs/2012.01714.
+
+\bibitem[Qi et~al.(2017{\natexlab{a}})Qi, Su, Mo, and Guibas]{qi2017pointnet}
+Qi~C~R, Su~H, Mo~K, et~al.
+\newblock Pointnet: Deep learning on point sets for 3d classification and
+  segmentation[C]//\allowbreak
+Rehg~J, Liu~Y, Wu~Y, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Honolulu: {IEEE} Computer Society, 2017{\natexlab{a}}:\allowbreak
+  77-85.
+
+\bibitem[Qi et~al.(2017{\natexlab{b}})Qi, Yi, Su, and Guibas]{qi2017pointnet++}
+Qi~C~R, Yi~L, Su~H, et~al.
+\newblock Pointnet++: Deep hierarchical feature learning on point sets in a
+  metric space[C]//\allowbreak
+Guyon~I, von Luxburg~U, Bengio~S, et~al.
+\newblock Advances in Neural Information Processing Systems (NeurIPS).
+\newblock Long Beach: Curran Associates, Inc., 2017{\natexlab{b}}:\allowbreak
+  5099-5108.
+
+\bibitem[Yang et~al.(2017)Yang, Feng, Shen, and Tian]{yang2017foldingnet}
+Yang~Y, Feng~C, Shen~Y, et~al.
+\newblock Foldingnet: Interpretable unsupervised learning on 3d point
+  clouds[J].
+\newblock ArXiv, 2017, abs/1712.07262:\allowbreak 5.
+
+\bibitem[Achlioptas et~al.(2018)Achlioptas, Diamanti, Mitliagkas, and
+  Guibas]{achlioptas2018learning}
+Achlioptas~P, Diamanti~O, Mitliagkas~I, et~al.
+\newblock Learning representations and generative models for 3d point
+  clouds[C]//\allowbreak
+Dy~J~G, Krause~A.
+\newblock International Conference on Machine Learning (ICML).
+\newblock Stockholm: {PMLR}, 2018:\allowbreak 40-49.
+
+\bibitem[Litany et~al.(2018)Litany, Bronstein, Bronstein, and
+  Makadia]{2017Deformable}
+Litany~O, Bronstein~A, Bronstein~M, et~al.
+\newblock Deformable shape completion with graph convolutional
+  autoencoders[C]//\allowbreak
+Forsyth~D, Laptev~I, Ramanan~D, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Salt Lake City: {IEEE} Computer Society, 2018:\allowbreak 1886-1895.
+
+\bibitem[Baqu{\'{e}} et~al.(2018)Baqu{\'{e}}, Remelli, Fleuret, and
+  Fua]{baque2018geodesic}
+Baqu{\'{e}}~P, Remelli~E, Fleuret~F, et~al.
+\newblock Geodesic convolutional shape optimization[C]//\allowbreak
+Dy~J~G, Krause~A.
+\newblock International Conference on Machine Learning (ICML).
+\newblock Stockholm: {PMLR}, 2018:\allowbreak 481-490.
+
+\bibitem[Tarini et~al.(2004)Tarini, Hormann, Cignoni, and
+  Montani]{tarini2004polycube}
+Tarini~M, Hormann~K, Cignoni~P, et~al.
+\newblock Polycube-maps[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2004, 23:\allowbreak 853-860.
+
+\bibitem[Sinha et~al.(2016)Sinha, Bai, and Ramani]{sinha2016deep}
+Sinha~A, Bai~J, Ramani~K.
+\newblock Deep learning 3d shape surfaces using geometry images[C]//\allowbreak
+Leibe~B, Matas~J, Sebe~N, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Amsterdam: Springer, 2016:\allowbreak 223-240.
+
+\bibitem[Maron et~al.(2017)Maron, Galun, Aigerman, Trope, Dym, Yumer, Kim, and
+  Lipman]{maron2017convolutional}
+Maron~H, Galun~M, Aigerman~N, et~al.
+\newblock Convolutional neural networks on surfaces via seamless toric
+  covers.[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2017, 36:\allowbreak 1-10.
+
+\bibitem[Groueix et~al.(2018)Groueix, Fisher, Kim, Russell, and
+  Aubry]{groueix2018papier}
+Groueix~T, Fisher~M, Kim~V~G, et~al.
+\newblock A papier-m{\^a}ch{\'e} approach to learning 3d surface
+  generation[C]//\allowbreak
+Forsyth~D, Laptev~I, Ramanan~D, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Salt Lake City: {IEEE} Computer Society, 2018:\allowbreak 216-224.
+
+\bibitem[Ben-Hamu et~al.(2018)Ben-Hamu, Maron, Kezurer, Avineri, and
+  Lipman]{ben2018multi}
+Ben-Hamu~H, Maron~H, Kezurer~I, et~al.
+\newblock Multi-chart generative surface modeling[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2018, 37:\allowbreak 1-15.
+
+\bibitem[Defferrard et~al.(2016)Defferrard, Bresson, and
+  Vandergheynst]{defferrard2016convolutional}
+Defferrard~M, Bresson~X, Vandergheynst~P.
+\newblock Convolutional neural networks on graphs with fast localized spectral
+  filtering[C]//\allowbreak
+Lee~D~D, Sugiyama~M, von Luxburg~U, et~al.
+\newblock Advances in Neural Information Processing Systems (NeurIPS).
+\newblock Barcelona: Curran Associates, Inc., 2016:\allowbreak 3837-3845.
+
+\bibitem[Verma et~al.(2018)Verma, Boyer, and Verbeek]{verma2018feastnet}
+Verma~N, Boyer~E, Verbeek~J.
+\newblock Feastnet: Feature-steered graph convolutions for 3d shape
+  analysis[C]//\allowbreak
+Forsyth~D, Laptev~I, Ramanan~D, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Salt Lake City: {IEEE} Computer Society, 2018:\allowbreak 2598-2606.
+
+\bibitem[Bruna et~al.(2014)Bruna, Zaremba, Szlam, and LeCun]{bruna2013spectral}
+Bruna~J, Zaremba~W, Szlam~A, et~al.
+\newblock Spectral networks and locally connected networks on
+  graphs[C]//\allowbreak
+Bengio~Y, LeCun~Y.
+\newblock International Conference on Learning Representations (ICLR).
+\newblock Banff: International Conference on Learning Representations (ICLR),
+  2014.
+
+\bibitem[Wu et~al.(2015)Wu, Song, Khosla, Yu, Zhang, Tang, and Xiao]{20153D}
+Wu~Z, Song~S, Khosla~A, et~al.
+\newblock 3d shapenets: A deep representation for volumetric
+  shapes[C]//\allowbreak
+Grauman~K, Learned-Miller~E, Torralba~A, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Boston: {IEEE} Computer Society, 2015:\allowbreak 1912-1920.
+
+\bibitem[Choy et~al.(2016)Choy, Xu, Gwak, Chen, and Savarese]{Choy20163D}
+Choy~C~B, Xu~D, Gwak~J, et~al.
+\newblock 3d-r2n2: {A} unified approach for single and multi-view 3d object
+  reconstruction[C]//\allowbreak
+Leibe~B, Matas~J, Sebe~N, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Amsterdam: Springer, 2016:\allowbreak 628-644.
+
+\bibitem[Tatarchenko et~al.(2017)Tatarchenko, Dosovitskiy, and
+  Brox]{Tatarchenko2017Octree}
+Tatarchenko~M, Dosovitskiy~A, Brox~T.
+\newblock Octree generating networks: Efficient convolutional architectures for
+  high-resolution 3d outputs[C]//\allowbreak
+Cucchiara~R, Matsushita~Y, Sebe~N, et~al.
+\newblock {IEEE} International Conference on Computer Vision (ICCV).
+\newblock Venice: {IEEE} Computer Society, 2017:\allowbreak 2107-2115.
+
+\bibitem[Riegler et~al.(2017)Riegler, Osman~Ulusoy, and
+  Geiger]{riegler2017octnet}
+Riegler~G, Osman~Ulusoy~A, Geiger~A.
+\newblock Octnet: Learning deep 3d representations at high
+  resolutions[C]//\allowbreak
+Rehg~J, Liu~Y, Wu~Y, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Honolulu: {IEEE} Computer Society, 2017:\allowbreak 6620-6629.
+
+\bibitem[H{\"a}ne et~al.(2017)H{\"a}ne, Tulsiani, and
+  Malik]{hane2017hierarchical}
+H{\"a}ne~C, Tulsiani~S, Malik~J.
+\newblock Hierarchical surface prediction for 3d object
+  reconstruction[C]//\allowbreak
+Avidan~S, Yasutaka, Sinha~S, et~al.
+\newblock International Conference on 3D Vision (3DV).
+\newblock Qingdao: {IEEE} Computer Society, 2017:\allowbreak 412-420.
+
+\bibitem[Curless et~al.(1996)Curless and Levoy]{curless1996volumetric}
+Curless~B, Levoy~M.
+\newblock A volumetric method for building complex models from range
+  images[C]//\allowbreak
+Fujii~J.
+\newblock International Conference on Computer Graphics and Interactive
+  Techniques (SIGGRAPH).
+\newblock New Orleans: {ACM}, 1996:\allowbreak 303-312.
+
+\bibitem[Jiang et~al.(2020)Jiang, Sud, Makadia, Huang, Nie{\ss}ner, Funkhouser,
+  et~al.]{jiang2020local}
+Jiang~C, Sud~A, Makadia~A, et~al.
+\newblock Local implicit grid representations for 3d scenes[C]//\allowbreak
+Liu~C, Mori~G, Saenko~K, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Seattle: {IEEE}, 2020:\allowbreak 6001-6010.
+
+\bibitem[Chabra et~al.(2020)Chabra, Lenssen, Ilg, Schmidt, Straub, Lovegrove,
+  and Newcombe]{chabra2020deep}
+Chabra~R, Lenssen~J~E, Ilg~E, et~al.
+\newblock Deep local shapes: Learning local {SDF} priors for detailed 3d
+  reconstruction[C]//\allowbreak
+Vedaldi~A, Bischof~H, Brox~T, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Glasgow: Springer, 2020:\allowbreak 608-625.
+
+\bibitem[Genova et~al.(2020)Genova, Cole, Sud, Sarna, and
+  Funkhouser]{genova2020local}
+Genova~K, Cole~F, Sud~A, et~al.
+\newblock Local deep implicit functions for 3d shape[C]//\allowbreak
+Liu~C, Mori~G, Saenko~K, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Seattle: {IEEE}, 2020:\allowbreak 4857-4866.
+
+\bibitem[Mescheder et~al.(2019)Mescheder, Oechsle, Niemeyer, Nowozin, and
+  Geiger]{mescheder2019occupancy}
+Mescheder~L, Oechsle~M, Niemeyer~M, et~al.
+\newblock Occupancy networks: Learning 3d reconstruction in function
+  space[C]//\allowbreak
+Gupta~A, Hoiem~D, Hua~G, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Long Beach: Computer Vision Foundation / {IEEE}, 2019:\allowbreak
+  4460-4470.
+
+\bibitem[Chang et~al.(2015)Chang, Funkhouser, Guibas, Hanrahan, Huang, Li,
+  Savarese, Savva, Song, Su, et~al.]{chang2015shapenet}
+Chang~A~X, Funkhouser~T, Guibas~L, et~al.
+\newblock Shapenet: An information-rich 3d model repository[J].
+\newblock ArXiv, 2015, abs/1512.03012.
+
+\bibitem[Niemeyer et~al.(2020)Niemeyer, Mescheder, Oechsle, and
+  Geiger]{niemeyer2020differentiable}
+Niemeyer~M, Mescheder~L, Oechsle~M, et~al.
+\newblock Differentiable volumetric rendering: Learning implicit 3d
+  representations without 3d supervision[C]//\allowbreak
+Liu~C, Mori~G, Saenko~K, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Seattle: {IEEE}, 2020:\allowbreak 3504-3515.
+
+\bibitem[Sitzmann et~al.(2019{\natexlab{a}})Sitzmann, Zollh{\"{o}}fer, and
+  Wetzstein]{sitzmann2019scene}
+Sitzmann~V, Zollh{\"{o}}fer~M, Wetzstein~G.
+\newblock Scene representation networks: Continuous 3d-structure-aware neural
+  scene representations[C]//\allowbreak
+Wallach~H~M, Larochelle~H, Beygelzimer~A, et~al.
+\newblock Advances in Neural Information Processing Systems (NeurIPS).
+\newblock Vancouver: Curran Associates, Inc., 2019{\natexlab{a}}:\allowbreak
+  1119-1130.
+
+\bibitem[Waechter et~al.(2014)Waechter, Moehrle, and Goesele]{Waechter2014Let}
+Waechter~M, Moehrle~N, Goesele~M.
+\newblock Let there be color! large-scale texturing of 3d
+  reconstructions[C]//\allowbreak
+Fleet~D~J, Pajdla~T, Schiele~B, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Zurich: Springer, 2014:\allowbreak 836-850.
+
+\bibitem[Debevec et~al.(1996)Debevec, Taylor, and Malik]{debevec1996modeling}
+Debevec~P~E, Taylor~C~J, Malik~J.
+\newblock Modeling and rendering architecture from photographs: {A} hybrid
+  geometry and image-based approach[C]//\allowbreak
+Fujii~J.
+\newblock International Conference on Computer Graphics and Interactive
+  Techniques (SIGGRAPH).
+\newblock New Orleans: {ACM}, 1996:\allowbreak 11-20.
+
+\bibitem[Wood et~al.(2000)Wood, Azuma, Aldinger, Curless, Duchamp, Salesin, and
+  Stuetzle]{wood2000surface}
+Wood~D~N, Azuma~D~I, Aldinger~K, et~al.
+\newblock Surface light fields for 3d photography[C]//\allowbreak
+Brown~J~R, Akeley~K.
+\newblock International Conference on Computer Graphics and Interactive
+  Techniques (SIGGRAPH).
+\newblock New Orleans: {ACM}, 2000:\allowbreak 287-296.
+
+\bibitem[Loper et~al.(2014)Loper and Black]{loper2014opendr}
+Loper~M~M, Black~M~J.
+\newblock Opendr: An approximate differentiable renderer[C]//\allowbreak
+Fleet~D~J, Pajdla~T, Schiele~B, et~al.
+\newblock European Conference on Computer Vision (ECCV).
+\newblock Zurich: Springer, 2014:\allowbreak 154-169.
+
+\bibitem[Chen et~al.(2019)Chen, Ling, Gao, Smith, Lehtinen, Jacobson, and
+  Fidler]{chen2019learning}
+Chen~W, Ling~H, Gao~J, et~al.
+\newblock Learning to predict 3d objects with an interpolation-based
+  differentiable renderer[C]//\allowbreak
+Wallach~H~M, Larochelle~H, Beygelzimer~A, et~al.
+\newblock Advances in Neural Information Processing Systems (NeurIPS).
+\newblock Vancouver: Curran Associates, Inc., 2019:\allowbreak 9605-9616.
+
+\bibitem[Genova et~al.(2018)Genova, Cole, Maschinot, Sarna, Vlasic, and
+  Freeman]{genova2018unsupervised}
+Genova~K, Cole~F, Maschinot~A, et~al.
+\newblock Unsupervised training for 3d morphable model
+  regression[C]//\allowbreak
+Forsyth~D, Laptev~I, Ramanan~D, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Salt Lake City: {IEEE} Computer Society, 2018:\allowbreak 8377-8386.
+
+\bibitem[Liu et~al.(2019)Liu, Li, Chen, and Li]{liu2019soft}
+Liu~S, Li~T, Chen~W, et~al.
+\newblock Soft rasterizer: A differentiable renderer for image-based 3d
+  reasoning[C]//\allowbreak
+Kweon~I~S, Paragios~N, Yang~M~H, et~al.
+\newblock {IEEE} International Conference on Computer Vision (ICCV).
+\newblock Seoul: {IEEE}, 2019:\allowbreak 7708-7717.
+
+\bibitem[Li et~al.(2018)Li, Aittala, Durand, and
+  Lehtinen]{li2018differentiable}
+Li~T~M, Aittala~M, Durand~F, et~al.
+\newblock Differentiable monte carlo ray tracing through edge sampling[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2018, 37:\allowbreak 1-11.
+
+\bibitem[Nimier-David et~al.(2019)Nimier-David, Vicini, Zeltner, and
+  Jakob]{nimier2019mitsuba}
+Nimier-David~M, Vicini~D, Zeltner~T, et~al.
+\newblock Mitsuba 2: A retargetable forward and inverse renderer[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2019, 38:\allowbreak 1-17.
+
+\bibitem[Kutulakos et~al.(2000)Kutulakos and Seitz]{kutulakos2000theory}
+Kutulakos~K~N, Seitz~S~M.
+\newblock A theory of shape by space carving[J].
+\newblock International Journal of Computer Vision (IJCV), 2000, 38:\allowbreak
+  199-218.
+
+\bibitem[Szeliski et~al.(1998)Szeliski and Golland]{szeliski1998stereo}
+Szeliski~R, Golland~P.
+\newblock Stereo matching with transparency and matting[C]//\allowbreak
+Davis~L, Zisserman~A, Yachida~M, et~al.
+\newblock {IEEE} International Conference on Computer Vision (ICCV).
+\newblock Bombay: {IEEE} Computer Society, 1998:\allowbreak 517-524.
+
+\bibitem[Flynn et~al.(2019)Flynn, Broxton, Debevec, DuVall, Fyffe, Overbeck,
+  Snavely, and Tucker]{flynn2019deepview}
+Flynn~J, Broxton~M, Debevec~P, et~al.
+\newblock Deepview: View synthesis with learned gradient
+  descent[C]//\allowbreak
+Gupta~A, Hoiem~D, Hua~G, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Long Beach: Computer Vision Foundation / {IEEE}, 2019:\allowbreak
+  2367-2376.
+
+\bibitem[Mildenhall et~al.(2019)Mildenhall, Srinivasan, Ortiz-Cayon, Kalantari,
+  Ramamoorthi, Ng, and Kar]{mildenhall2019local}
+Mildenhall~B, Srinivasan~P~P, Ortiz-Cayon~R, et~al.
+\newblock Local light field fusion: Practical view synthesis with prescriptive
+  sampling guidelines[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2019, 38:\allowbreak 1-14.
+
+\bibitem[Srinivasan et~al.(2019)Srinivasan, Tucker, Barron, Ramamoorthi, Ng,
+  and Snavely]{srinivasan2019pushing}
+Srinivasan~P~P, Tucker~R, Barron~J~T, et~al.
+\newblock Pushing the boundaries of view extrapolation with multiplane
+  images[C]//\allowbreak
+Gupta~A, Hoiem~D, Hua~G, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Long Beach: Computer Vision Foundation / {IEEE}, 2019:\allowbreak
+  175-184.
+
+\bibitem[Zhou et~al.(2018)Zhou, Tucker, Flynn, Fyffe, and
+  Snavely]{zhou2018stereo}
+Zhou~T, Tucker~R, Flynn~J, et~al.
+\newblock Stereo magnification: Learning view synthesis using multiplane
+  images[J].
+\newblock {ACM} Transactions on Graphics (TOG), 2018, 37:\allowbreak
+  65:1-65:12.
+
+\bibitem[Porter et~al.(1984)Porter and Duff]{porter1984compositing}
+Porter~T, Duff~T.
+\newblock Compositing digital images[C]//\allowbreak
+Christiansen~H.
+\newblock International Conference on Computer Graphics and Interactive
+  Techniques (SIGGRAPH).
+\newblock Minneapolis: {ACM}, 1984:\allowbreak 253-259.
+
+\bibitem[Sitzmann et~al.(2019{\natexlab{b}})Sitzmann, Thies, Heide,
+  Nie{\ss}ner, Wetzstein, and Zollhofer]{sitzmann2019deepvoxels}
+Sitzmann~V, Thies~J, Heide~F, et~al.
+\newblock Deepvoxels: Learning persistent 3d feature embeddings[C]//\allowbreak
+Gupta~A, Hoiem~D, Hua~G, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Long Beach: Computer Vision Foundation / {IEEE},
+  2019{\natexlab{b}}:\allowbreak 2437-2446.
+
+\bibitem[Goodfellow et~al.(2016)Goodfellow, Bengio, Courville, and
+  Bengio]{goodfellow2016deep}
+Goodfellow~I, Bengio~Y, Courville~A, et~al.
+\newblock Deep learning: volume~1[M].
+\newblock MIT press Cambridge, 2016.
+
+\bibitem[Hinton(2009)]{hinton2009deep}
+Hinton~G~E.
+\newblock Deep belief networks[J].
+\newblock Scholarpedia, 2009, 4:\allowbreak 5947.
+
+\bibitem[Rumelhart et~al.(1986)Rumelhart, Hinton, and
+  Williams]{rumelhart1986learning}
+Rumelhart~D~E, Hinton~G~E, Williams~R~J.
+\newblock Learning representations by back-propagating errors[J].
+\newblock Nature, 1986, 323:\allowbreak 533-536.
+
+\bibitem[LeCun et~al.(1995)LeCun, Bengio, et~al.]{lecun1995convolutional}
+LeCun~Y, Bengio~Y, et~al.
+\newblock Convolutional networks for images, speech, and time series[J].
+\newblock The handbook of brain theory and neural networks, 1995,
+  3361:\allowbreak 1995.
+
+\bibitem[Glorot et~al.(2011)Glorot, Bordes, and Bengio]{glorot2011deep}
+Glorot~X, Bordes~A, Bengio~Y.
+\newblock Deep sparse rectifier neural networks[C]//\allowbreak
+Gordon~G~J, Dunson~D~B, Dud{\'{\i}}k~M.
+\newblock International Conference on Artificial Intelligence and Statistics
+  (AISTATS).
+\newblock Fort Lauderdale: JMLR.org, 2011:\allowbreak 315-323.
+
+\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and
+  Hinton]{2012ImageNet}
+Krizhevsky~A, Sutskever~I, Hinton~G.
+\newblock Imagenet classification with deep convolutional neural
+  networks[C]//\allowbreak
+Bartlett~P~L, Pereira~F~C~N, Burges~C~J~C, et~al.
+\newblock Advances in Neural Information Processing Systems (NeurIPS).
+\newblock Lake Tahoe: Curran Associates, Inc., 2012:\allowbreak 1106-1114.
+
+\bibitem[Simonyan et~al.(2015)Simonyan and Zisserman]{simonyan2014very}
+Simonyan~K, Zisserman~A.
+\newblock Very deep convolutional networks for large-scale image
+  recognition[C]//\allowbreak
+Bengio~Y, LeCun~Y.
+\newblock International Conference on Learning Representations (ICLR).
+\newblock San Diego: International Conference on Learning Representations
+  (ICLR), 2015.
+
+\bibitem[Srivastava et~al.(2015)Srivastava, Greff, and
+  Schmidhuber]{srivastava2015highway}
+Srivastava~R~K, Greff~K, Schmidhuber~J.
+\newblock Highway networks[J].
+\newblock ArXiv, 2015, abs/1505.00387.
+
+\bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he2016deep}
+He~K, Zhang~X, Ren~S, et~al.
+\newblock Deep residual learning for image recognition[C]//\allowbreak
+Agapito~L, Berg~T, Kosecka~J, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Las Vegas: {IEEE} Computer Society, 2016:\allowbreak 770-778.
+
+\bibitem[Lin et~al.(2019)Lin, Xiao, Tan, Chao, and Ding]{lin2019justlookup}
+Lin~H, Xiao~Z, Tan~Y, et~al.
+\newblock Justlookup: One millisecond deep feature extraction for point clouds
+  by lookup tables[C]//\allowbreak
+Wu~J, Mrak~M, Li~Z, et~al.
+\newblock IEEE International Conference on Multimedia and Expo (ICME).
+\newblock Shanghai: {IEEE}, 2019:\allowbreak 326-331.
+
+\bibitem[Rahaman et~al.(2019)Rahaman, Baratin, Arpit, Draxler, Lin, Hamprecht,
+  Bengio, and Courville]{rahaman2019spectral}
+Rahaman~N, Baratin~A, Arpit~D, et~al.
+\newblock On the spectral bias of neural networks[C]//\allowbreak
+Chaudhuri~K, Salakhutdinov~R.
+\newblock International Conference on Machine Learning (ICML).
+\newblock Long Beach: {PMLR}, 2019:\allowbreak 5301-5310.
+
+\bibitem[Levoy(1990)]{levoy1990efficient}
+Levoy~M.
+\newblock Efficient ray tracing of volume data[J].
+\newblock {ACM} Transactions on Graphics (TOG), 1990, 9:\allowbreak 245-261.
+
+\bibitem[Lorensen et~al.(1987)Lorensen and Cline]{lorensen1987marching}
+Lorensen~W~E, Cline~H~E.
+\newblock Marching cubes: A high resolution 3d surface construction
+  algorithm[J].
+\newblock International Conference on Computer Graphics and Interactive
+  Techniques (SIGGRAPH), 1987, 21:\allowbreak 163-169.
+
+\bibitem[Kingma et~al.(2015)Kingma and Ba]{kingma2014adam}
+Kingma~D~P, Ba~J.
+\newblock Adam: {A} method for stochastic optimization[C]//\allowbreak
+Bengio~Y, LeCun~Y.
+\newblock International Conference on Learning Representations (ICLR).
+\newblock San Diego: International Conference on Learning Representations
+  (ICLR), 2015.
+
+\bibitem[Wang et~al.(2004)Wang, Bovik, Sheikh, and Simoncelli]{wang2004image}
+Wang~Z, Bovik~A~C, Sheikh~H~R, et~al.
+\newblock Image quality assessment: from error visibility to structural
+  similarity[J].
+\newblock IEEE Transactions on Image Processing (TIP), 2004, 13:\allowbreak
+  600-612.
+
+\bibitem[Zhang et~al.(2018)Zhang, Isola, Efros, Shechtman, and
+  Wang]{zhang2018unreasonable}
+Zhang~R, Isola~P, Efros~A~A, et~al.
+\newblock The unreasonable effectiveness of deep features as a perceptual
+  metric[C]//\allowbreak
+Forsyth~D, Laptev~I, Ramanan~D, et~al.
+\newblock {IEEE} Conference on Computer Vision and Pattern Recognition (CVPR).
+\newblock Salt Lake City: {IEEE} Computer Society, 2018:\allowbreak 586-595.
+
+\end{thebibliography}

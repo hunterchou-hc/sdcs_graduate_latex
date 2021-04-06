@@ -1,0 +1,899 @@
+@string{NIPS = {Advances in Neural Information Processing Systems (NeurIPS)}}
+@string{TOG = {{ACM} Transactions on Graphics (TOG)}}
+@string{ICLR = {International Conference on Learning Representations (ICLR)}}
+@string{SIGGRAPH = {International Conference on Computer Graphics and Interactive Techniques (SIGGRAPH)}}
+@string{ECCV = {European Conference on Computer Vision (ECCV)}}
+@string{ICCV = {{IEEE} International Conference on Computer Vision (ICCV)}}
+@string{CVPR = {{IEEE} Conference on Computer Vision and Pattern Recognition (CVPR)}}
+@string{ICML = {International Conference on Machine Learning (ICML)}}
+
+
+
+@inproceedings{chen1993view,
+  author    = {Shenchang Eric Chen and
+  Lance Williams},
+  editor    = {Mary C. Whitton},
+  title     = {View interpolation for image synthesis},
+  booktitle = SIGGRAPH,
+  address   = {Anaheim},
+  pages     = {279--288},
+  publisher = {{ACM}},
+  year      = {1993}
+}
+
+@inproceedings{riegler2020free,
+  title={Free view synthesis},
+  author={Riegler, Gernot and Koltun, Vladlen},
+  editor    = {Andrea Vedaldi and Horst Bischof and
+  Thomas Brox and Jan{-}Michael Frahm},
+  booktitle=ECCV,
+  address={Glasgow},
+  publisher = {Springer},
+  pages={623--640},
+  year={2020}
+}
+
+@article{kee2013exposing,
+  title={Exposing photo manipulation with inconsistent shadows},
+  author={Kee, Eric and O'Brien, James F and Farid, Hany},
+  journal=TOG,
+  volume={32},
+  pages={1--12},
+  year={2013}
+}
+
+@inproceedings{tewari2020state,
+  title={State of the art on neural rendering},
+  author={Tewari, Ayush and Fried, Ohad and Thies, Justus and Sitzmann, Vincent and Lombardi, Stephen and Sunkavalli, Kalyan and Martin-Brualla, Ricardo and Simon, Tomas and Saragih, Jason and Nie{\ss}ner, Matthias and others},
+  editor={},
+  booktitle={Computer Graphics Forum},
+  address={},
+  pages={701--727},
+  year={2020},
+  organization={Wiley Online Library}
+}
+
+@inproceedings{mildenhall2020nerf,
+  title={Nerf: Representing scenes as neural radiance fields for view synthesis},
+  author={Mildenhall, Ben and Srinivasan, Pratul P and Tancik, Matthew and Barron, Jonathan T and Ramamoorthi, Ravi and Ng, Ren},
+  editor={Andrea Vedaldi and
+  Horst Bischof and
+  Thomas Brox and
+  Jan{-}Michael Frahm},
+  booktitle=ECCV,
+  address={Glasgow},
+  publisher = {Springer},
+  pages={405--421},
+  year={2020}
+}
+
+@article{hedman2018deep,
+  title={Deep blending for free-viewpoint image-based rendering},
+  author={Hedman, Peter and Philip, Julien and Price, True and Frahm, Jan-Michael and Drettakis, George and Brostow, Gabriel},
+  journal=TOG},
+  volume={37},
+  pages={1--15},
+  year={2018}
+}
+
+@article{aliev2019neural,
+  title={Neural point-based graphics},
+  author={Aliev, Kara-Ali and Ulyanov, Dmitry and Lempitsky, Victor},
+  journal   = {Arxiv},
+  volume    = {abs/1906.08240},
+  pages={4},
+  year={2019}
+}
+
+@inproceedings{dai2020neural,
+  title={Neural point cloud rendering via multi-plane projection},
+  author={Dai, Peng and Zhang, Yinda and Li, Zhuwen and Liu, Shuaicheng and Zeng, Bing},
+  editor={Ce Liu and Greg Mori and Kate Saenko and Silvio Savarese},
+  booktitle=CVPR,
+  address={Seattle},
+  publisher={{IEEE}},
+  pages={7830--7839},
+  year={2020}
+}
+
+@article{zhang2020nerf++,
+	title={Nerf++: Analyzing and improving neural radiance fields},
+	author={Zhang, Kai and Riegler, Gernot and Snavely, Noah and Koltun, Vladlen},
+	journal={ArXiv},
+	volume={abs/2010.07492},
+	year={2020}
+}
+
+@article{martin2020nerf,
+  title={Nerf in the wild: Neural radiance fields for unconstrained photo collections},
+  author={Martin-Brualla, Ricardo and Radwan, Noha and Sajjadi, Mehdi SM and Barron, Jonathan T and Dosovitskiy, Alexey and Duckworth, Daniel},
+  journal={ArXiv},
+  volume={abs/2008.02268},
+  year={2020}
+}
+
+@article{yen2020inerf,
+  title={iNeRF: Inverting Neural Radiance Fields for Pose Estimation},
+  author={Yen-Chen, Lin and Florence, Pete and Barron, Jonathan T and Rodriguez, Alberto and Isola, Phillip and Lin, Tsung-Yi},
+  journal={ArXiv},
+  volume={abs/2012.05877},
+  year={2020}
+}
+
+@article{yu2020pixelnerf,
+  title={pixelNeRF: Neural Radiance Fields from One or Few Images},
+  author={Yu, Alex and Ye, Vickie and Tancik, Matthew and Kanazawa, Angjoo},
+  journal={ArXiv},
+  volume={abs/2012.02190},
+  year={2020}
+}
+
+@article{trevithick2020grf,
+  title={GRF: Learning a General Radiance Field for 3D Scene Representation and Rendering},
+  author={Trevithick, Alex and Yang, Bo},
+  journal={ArXiv},
+  volume={abs/2010.04595},
+  year={2020}
+}
+
+@article{schwarz2020graf,
+  title={Graf: Generative radiance fields for 3d-aware image synthesis},
+  author={Schwarz, Katja and Liao, Yiyi and Niemeyer, Michael and Geiger, Andreas},
+  journal={ArXiv},
+  volume={abs/2007.02442},
+  year={2020}
+}
+
+@article{liu2020neural,
+	title={Neural sparse voxel fields},
+	author={Liu, Lingjie and Gu, Jiatao and Lin, Kyaw Zaw and Chua, Tat-Seng and Theobalt, Christian},
+	journal={ArXiv},
+	volume={abs/2007.11571},
+	year={2020}
+}
+
+@article{lindell2020autoint,
+  title={AutoInt: Automatic Integration for Fast Neural Volume Rendering},
+  author={Lindell, David B and Martel, Julien NP and Wetzstein, Gordon},
+  journal={ArXiv},
+  volume={abs/2012.01714},
+  year={2020}
+}
+
+@inproceedings{qi2017pointnet,
+  title={Pointnet: Deep learning on point sets for 3d classification and segmentation},
+  author={Qi, Charles R and Su, Hao and Mo, Kaichun and Guibas, Leonidas J},
+  editor={Jim Rehg and Yanxi Liu and Ying Wu and Camillo Taylor},
+  booktitle=CVPR,
+  address={Honolulu},
+  publisher = {{IEEE} Computer Society},
+  pages={77--85},
+  year={2017}
+}
+
+@inproceedings{qi2017pointnet++,
+	author    = {Charles Ruizhongtai Qi and
+	Li Yi and
+	Hao Su and
+	Leonidas J. Guibas},
+	editor    = {Isabelle Guyon and
+	Ulrike von Luxburg and
+	Samy Bengio and
+	Hanna M. Wallach and
+	Rob Fergus and
+	S. V. N. Vishwanathan and
+	Roman Garnett},
+	title={Pointnet++: Deep hierarchical feature learning on point sets in a metric space},
+	booktitle = NIPS,
+	address   = {Long Beach},
+	publisher = {Curran Associates, Inc.},
+	pages     = {5099--5108},
+	year      = {2017},
+}
+
+@article{yang2017foldingnet,
+  title={Foldingnet: Interpretable unsupervised learning on 3d point clouds},
+  author={Yang, Yaoqing and Feng, Chen and Shen, Yiru and Tian, Dong},
+  journal={ArXiv},
+  volume={abs/1712.07262},
+  pages={5},
+  year={2017}
+}
+
+@inproceedings{achlioptas2018learning,
+  title={Learning representations and generative models for 3d point clouds},
+  author={Achlioptas, Panos and Diamanti, Olga and Mitliagkas, Ioannis and Guibas, Leonidas},
+  editor    = {Jennifer G. Dy and
+  Andreas Krause},
+  booktitle=ICML,
+  address = {Stockholm},
+  publisher = {{PMLR}},
+  pages={40--49},
+  year={2018}
+}
+
+@inproceedings{2017Deformable,
+	author={ Litany, Or  and  Bronstein, Alex  and  Bronstein, Michael  and  Makadia, Ameesh },
+	title={Deformable Shape Completion with Graph Convolutional Autoencoders},
+	editor={David Forsyth and Ivan Laptev and Deva Ramanan and Aude Oliva},
+	booktitle = CVPR,
+	address   = {Salt Lake City},
+	pages     = {1886--1895},
+	publisher = {{IEEE} Computer Society},
+	year      = {2018}
+}
+
+@inproceedings{baque2018geodesic,
+	author    = {Pierre Baqu{\'{e}} and
+	Edoardo Remelli and
+	Fran{\c{c}}ois Fleuret and
+	Pascal Fua},
+	editor    = {Jennifer G. Dy and
+	Andreas Krause},
+	title     = {Geodesic Convolutional Shape Optimization},
+	booktitle = ICML,
+	address   = {Stockholm},
+	pages     = {481--490},
+	publisher = {{PMLR}},
+	year      = {2018}
+}
+
+@article{tarini2004polycube,
+  title={Polycube-maps},
+  author={Tarini, Marco and Hormann, Kai and Cignoni, Paolo and Montani, Claudio},
+  journal=TOG,
+  volume={23},
+  pages={853--860},
+  year={2004}
+}
+
+@inproceedings{sinha2016deep,
+  title={Deep learning 3D shape surfaces using geometry images},
+  author={Sinha, Ayan and Bai, Jing and Ramani, Karthik},
+  editor    = {Bastian Leibe and
+  Jiri Matas and
+  Nicu Sebe and
+  Max Welling},
+  booktitle=ECCV,
+  address={Amsterdam},
+  publisher = {Springer},
+  pages={223--240},
+  year={2016}
+}
+
+@article{maron2017convolutional,
+  title={Convolutional neural networks on surfaces via seamless toric covers.},
+  author={Maron, Haggai and Galun, Meirav and Aigerman, Noam and Trope, Miri and Dym, Nadav and Yumer, Ersin and Kim, Vladimir G and Lipman, Yaron},
+  journal=TOG,
+  volume={36},
+  pages={1--10},
+  year={2017}
+}
+
+@inproceedings{groueix2018papier,
+  title={A papier-m{\^a}ch{\'e} approach to learning 3d surface generation},
+  author={Groueix, Thibault and Fisher, Matthew and Kim, Vladimir G and Russell, Bryan C and Aubry, Mathieu},
+  editor={David Forsyth and Ivan Laptev and Deva Ramanan and Aude Oliva},
+  booktitle=CVPR,
+  address = {Salt Lake City},
+  publisher = {{IEEE} Computer Society},
+  pages={216--224},
+  year={2018}
+}
+
+@article{ben2018multi,
+  title={Multi-chart generative surface modeling},
+  author={Ben-Hamu, Heli and Maron, Haggai and Kezurer, Itay and Avineri, Gal and Lipman, Yaron},
+  journal=TOG,
+  volume={37},
+  pages={1--15},
+  year={2018}
+}
+
+@inproceedings{defferrard2016convolutional,
+	author    = {Micha{\"{e}}l Defferrard and
+	Xavier Bresson and
+	Pierre Vandergheynst},
+	editor    = {Daniel D. Lee and
+	Masashi Sugiyama and
+	Ulrike von Luxburg and
+	Isabelle Guyon and
+	Roman Garnett},
+	title     = {Convolutional Neural Networks on Graphs with Fast Localized Spectral
+	Filtering},
+	booktitle = NIPS,
+	address   = {Barcelona},
+	publisher = {Curran Associates, Inc.},
+	pages     = {3837--3845},
+	year      = {2016}
+}
+
+@inproceedings{verma2018feastnet,
+  title={Feastnet: Feature-steered graph convolutions for 3d shape analysis},
+  author={Verma, Nitika and Boyer, Edmond and Verbeek, Jakob},
+  editor={David Forsyth and Ivan Laptev and Deva Ramanan and Aude Oliva},
+  booktitle=CVPR,
+  address = {Salt Lake City},
+  publisher = {{IEEE} Computer Society},
+  pages={2598--2606},
+  year={2018}
+}
+
+@inproceedings{bruna2013spectral,
+	author    = {Joan Bruna and
+	Wojciech Zaremba and
+	Arthur Szlam and
+	Yann LeCun},
+	editor    = {Yoshua Bengio and
+	Yann LeCun},
+	title     = {Spectral networks and locally connected networks on graphs},
+	booktitle = ICLR,
+	address   = {Banff},
+	publisher = ICLR,
+	pages     = {},
+	year      = {2014}
+}
+
+@inproceedings{20153D,
+  author = {Zhirong Wu and 
+  Shuran Song and 
+  Aditya Khosla and
+  Fisher Yu and
+  Linguang Zhang and
+  Xiaoou Tang and
+  Jianxiong Xiao},
+  editor={Kristen Grauman and Erik Learned-Miller and Antonio Torralba and Andrew Zisserman},
+  title={3D ShapeNets: A deep representation for volumetric shapes},
+  booktitle=CVPR,
+  address = {Boston},
+  pages = {1912--1920},
+  publisher = {{IEEE} Computer Society},
+  year={2015}
+}
+
+@inproceedings{Choy20163D,
+	author    = {Christopher B. Choy and
+	Danfei Xu and
+	JunYoung Gwak and
+	Kevin Chen and
+	Silvio Savarese},
+	editor    = {Bastian Leibe and
+	Jiri Matas and
+	Nicu Sebe and
+	Max Welling},
+	title     = {3D-R2N2: {A} Unified Approach for Single and Multi-view 3D Object
+	Reconstruction},
+	booktitle = ECCV,
+	address   = {Amsterdam},
+	pages     = {628--644},
+	publisher = {Springer},
+	year      = {2016}
+}
+
+@inproceedings{Tatarchenko2017Octree,
+	author = {Maxim Tatarchenko and
+	Alexey Dosovitskiy and
+	Thomas Brox},
+	editor = {Rita Cucchiara and Yasuyuki Matsushita and Nicu Sebe and Stefano Soatto},
+	booktitle = ICCV,
+	address = {Venice},
+	pages = {2107--2115},
+	publisher = {{IEEE} Computer Society},
+	title = {Octree Generating Networks: Efficient Convolutional Architectures
+	for High-resolution 3D Outputs},
+	year = {2017}
+}
+
+@inproceedings{riegler2017octnet,
+  title={Octnet: Learning deep 3d representations at high resolutions},
+  author={Riegler, Gernot and Osman Ulusoy, Ali and Geiger, Andreas},
+  editor = {Jim Rehg and Yanxi Liu and Ying Wu and Camillo Taylor},
+  booktitle=CVPR,
+  address = {Honolulu},
+  publisher = {{IEEE} Computer Society},
+  pages={6620--6629},
+  year={2017}
+}
+
+@inproceedings{hane2017hierarchical,
+  title={Hierarchical surface prediction for 3d object reconstruction},
+  author={H{\"a}ne, Christian and Tulsiani, Shubham and Malik, Jitendra},
+  editor = {Shai Avidan and Yasutaka and Sudipta Sinha and Hao Su},
+  booktitle={International Conference on 3D Vision (3DV)},
+  address = {Qingdao},
+  publisher = {{IEEE} Computer Society},
+  pages={412--420},
+  year={2017}
+}
+
+@inproceedings{curless1996volumetric,
+	author    = {Brian Curless and
+	Marc Levoy},
+	editor    = {John Fujii},
+	title     = {A Volumetric Method for Building Complex Models from Range Images},
+	booktitle=SIGGRAPH,
+	address   = {New Orleans},
+	pages     = {303--312},
+	publisher = {{ACM}},
+	year      = {1996}
+}
+
+@inproceedings{jiang2020local,
+  title={Local implicit grid representations for 3d scenes},
+  author={Jiang, Chiyu and Sud, Avneesh and Makadia, Ameesh and Huang, Jingwei and Nie{\ss}ner, Matthias and Funkhouser, Thomas and others},
+  editor = {Ce Liu and Greg Mori and Kate Saenko and Silvio Savarese},
+  booktitle=CVPR,
+  address = {Seattle},
+  publisher = {{IEEE}},
+  pages={6001--6010},
+  year={2020}
+}
+
+@inproceedings{park2019deepsdf,
+  title={Deepsdf: Learning continuous signed distance functions for shape representation},
+  author={Park, Jeong Joon and Florence, Peter and Straub, Julian and Newcombe, Richard and Lovegrove, Steven},
+  editor={Abhinav Gupta and Derek Hoiem and Gang Hua and Zhuowen Tu},
+  booktitle=CVPR,
+  address = {Long Beach},
+  publisher = {Computer Vision Foundation / {IEEE}},
+  pages={165--174},
+  year={2019}
+}
+
+@inproceedings{chabra2020deep,
+	author    = {Rohan Chabra and
+	Jan Eric Lenssen and
+	Eddy Ilg and
+	Tanner Schmidt and
+	Julian Straub and
+	Steven Lovegrove and
+	Richard A. Newcombe},
+	editor    = {Andrea Vedaldi and
+	Horst Bischof and
+	Thomas Brox and
+	Jan{-}Michael Frahm},
+	title     = {Deep Local Shapes: Learning Local {SDF} Priors for Detailed 3D Reconstruction},
+	booktitle=ECCV,
+	address   = {Glasgow},
+	pages     = {608--625},
+	publisher = {Springer},
+	year      = {2020}
+}
+
+@inproceedings{genova2020local,
+  title={Local deep implicit functions for 3d shape},
+  author={Genova, Kyle and Cole, Forrester and Sud, Avneesh and Sarna, Aaron and Funkhouser, Thomas},
+  editor = {Ce Liu and Greg Mori and Kate Saenko and Silvio Savarese},
+  booktitle=CVPR,
+  address = {Seattle},
+  publisher = {{IEEE}},
+  pages={4857--4866},
+  year={2020}
+}
+
+@inproceedings{mescheder2019occupancy,
+  title={Occupancy networks: Learning 3d reconstruction in function space},
+  author={Mescheder, Lars and Oechsle, Michael and Niemeyer, Michael and Nowozin, Sebastian and Geiger, Andreas},
+  editor={Abhinav Gupta and Derek Hoiem and Gang Hua and Zhuowen Tu},
+  booktitle=CVPR,
+  address = {Long Beach},
+  publisher = {Computer Vision Foundation / {IEEE}},
+  pages={4460--4470},
+  year={2019}
+}
+
+@article{chang2015shapenet,
+  title={Shapenet: An information-rich 3d model repository},
+  author={Chang, Angel X and Funkhouser, Thomas and Guibas, Leonidas and Hanrahan, Pat and Huang, Qixing and Li, Zimo and Savarese, Silvio and Savva, Manolis and Song, Shuran and Su, Hao and others},
+  journal={ArXiv},
+  volume = {abs/1512.03012},
+  year={2015}
+}
+
+@inproceedings{niemeyer2020differentiable,
+  title={Differentiable volumetric rendering: Learning implicit 3d representations without 3d supervision},
+  author={Niemeyer, Michael and Mescheder, Lars and Oechsle, Michael and Geiger, Andreas},
+  address = {Seattle},
+  publisher = {{IEEE}},
+  editor = {Ce Liu and Greg Mori and Kate Saenko and Silvio Savarese},
+  booktitle=CVPR,
+  pages={3504--3515},
+  year={2020}
+}
+
+@inproceedings{sitzmann2019scene,
+	author = {Vincent Sitzmann and
+	Michael Zollh{\"{o}}fer and
+	Gordon Wetzstein},
+	editor = {Hanna M. Wallach and
+	Hugo Larochelle and
+	Alina Beygelzimer and
+	Florence d'Alch{\'{e}}{-}Buc and
+	Emily B. Fox and
+	Roman Garnett},
+	booktitle = NIPS,
+	address = {Vancouver},
+	publisher = {Curran Associates, Inc.},
+	pages = {1119--1130},
+	title = {Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations},
+	year = {2019}
+}
+
+@inproceedings{Waechter2014Let,
+  title={Let There Be Color! Large-Scale Texturing of 3D Reconstructions},
+  author={Waechter, Michael and Moehrle, Nils and Goesele, Michael},
+  editor    = {David J. Fleet and
+  Tom{\'{a}}s Pajdla and
+  Bernt Schiele and
+  Tinne Tuytelaars},
+  booktitle=ECCV,
+  address = {Zurich},
+  publisher = {Springer},
+  pages     = {836--850},
+  year={2014},
+}
+
+@inproceedings{debevec1996modeling,
+	author    = {Paul E. Debevec and
+	Camillo J. Taylor and
+	Jitendra Malik},
+	editor    = {John Fujii},
+	title     = {Modeling and Rendering Architecture from Photographs: {A} Hybrid Geometry and Image-Based Approach},
+	booktitle=SIGGRAPH,
+	address	  = {New Orleans},
+	pages     = {11--20},
+	publisher = {{ACM}},
+	year      = {1996}
+}
+
+@inproceedings{wood2000surface,
+	author    = {Daniel N. Wood and
+	Daniel I. Azuma and
+	Ken Aldinger and
+	Brian Curless and
+	Tom Duchamp and
+	David Salesin and
+	Werner Stuetzle},
+	editor    = {Judith R. Brown and
+	Kurt Akeley},
+	title     = {Surface light fields for 3D photography},
+	booktitle=SIGGRAPH,
+	address   = {New Orleans},
+	pages     = {287--296},
+	publisher = {{ACM}},
+	year      = {2000},
+}
+
+@inproceedings{loper2014opendr,
+	author    = {Matthew M. Loper and
+	Michael J. Black},
+	editor    = {David J. Fleet and
+	Tom{\'{a}}s Pajdla and
+	Bernt Schiele and
+	Tinne Tuytelaars},
+	title     = {OpenDR: An Approximate Differentiable Renderer},
+	booktitle=ECCV,
+	address   = {Zurich},
+	pages     = {154--169},
+	publisher = {Springer},
+	year      = {2014},
+}
+
+@inproceedings{chen2019learning,
+	author = {Wenzheng Chen and
+	Huan Ling and
+	Jun Gao and
+	Edward J. Smith and
+	Jaakko Lehtinen and
+	Alec Jacobson and
+	Sanja Fidler},
+	booktitle = NIPS,
+	editor = {Hanna M. Wallach and
+	Hugo Larochelle and
+	Alina Beygelzimer and
+	Florence d'Alch{\'{e}}{-}Buc and
+	Emily B. Fox and
+	Roman Garnett},
+	address = {Vancouver},
+	publisher = {Curran Associates, Inc.},
+	pages = {9605--9616},
+	title = {Learning to Predict 3D Objects with an Interpolation-based Differentiable
+	Renderer},
+	year = {2019}
+}
+
+@inproceedings{genova2018unsupervised,
+  title={Unsupervised training for 3d morphable model regression},
+  author={Genova, Kyle and Cole, Forrester and Maschinot, Aaron and Sarna, Aaron and Vlasic, Daniel and Freeman, William T},
+  editor={David Forsyth and Ivan Laptev and Deva Ramanan and Aude Oliva},
+  booktitle=CVPR,
+  address = {Salt Lake City},
+  publisher = {{IEEE} Computer Society},
+  pages={8377--8386},
+  year={2018}
+}
+
+@inproceedings{liu2019soft,
+  title={Soft rasterizer: A differentiable renderer for image-based 3d reasoning},
+  author={Liu, Shichen and Li, Tianye and Chen, Weikai and Li, Hao},
+  booktitle=ICCV,
+  editor    = {In So Kweon and Nikos Paragios and Ming-Hsuan Yang and Svetlana Lazebnik},
+  address   = {Seoul},
+  publisher = {{IEEE}},
+  pages={7708--7717},
+  year={2019}
+}
+
+@article{li2018differentiable,
+  title={Differentiable monte carlo ray tracing through edge sampling},
+  author={Li, Tzu-Mao and Aittala, Miika and Durand, Fr{\'e}do and Lehtinen, Jaakko},
+  journal=TOG,
+  volume={37},
+  pages={1--11},
+  year={2018},
+}
+
+@article{nimier2019mitsuba,
+  title={Mitsuba 2: A retargetable forward and inverse renderer},
+  author={Nimier-David, Merlin and Vicini, Delio and Zeltner, Tizian and Jakob, Wenzel},
+  journal=TOG,
+  volume={38},
+  pages={1--17},
+  year={2019}
+}
+
+@article{kutulakos2000theory,
+  title={A theory of shape by space carving},
+  author={Kutulakos, Kiriakos N and Seitz, Steven M},
+  journal={International Journal of Computer Vision (IJCV)},
+  volume={38},
+  pages={199--218},
+  year={2000}
+}
+
+@inproceedings{szeliski1998stereo,
+  title={Stereo matching with transparency and matting},
+  editor = {Larry Davis and Andrew Zisserman and Masahiko Yachida and R. Narasimhan},
+  author={Szeliski, Richard and Golland, Polina},
+  booktitle=ICCV,
+  address = {Bombay},
+  publisher = {{IEEE} Computer Society},
+  pages={517--524},
+  year={1998}
+}
+
+@inproceedings{flynn2019deepview,
+  title={Deepview: View synthesis with learned gradient descent},
+  author={Flynn, John and Broxton, Michael and Debevec, Paul and DuVall, Matthew and Fyffe, Graham and Overbeck, Ryan and Snavely, Noah and Tucker, Richard},
+  editor={Abhinav Gupta and Derek Hoiem and Gang Hua and Zhuowen Tu},
+  booktitle=CVPR,
+  address = {Long Beach},
+  publisher = {Computer Vision Foundation / {IEEE}},
+  pages={2367--2376},
+  year={2019}
+}
+
+@article{mildenhall2019local,
+  title={Local light field fusion: Practical view synthesis with prescriptive sampling guidelines},
+  author={Mildenhall, Ben and Srinivasan, Pratul P and Ortiz-Cayon, Rodrigo and Kalantari, Nima Khademi and Ramamoorthi, Ravi and Ng, Ren and Kar, Abhishek},
+  journal=TOG,
+  volume={38},
+  pages={1--14},
+  year={2019}
+}
+
+@inproceedings{srinivasan2019pushing,
+  title={Pushing the boundaries of view extrapolation with multiplane images},
+  author={Srinivasan, Pratul P and Tucker, Richard and Barron, Jonathan T and Ramamoorthi, Ravi and Ng, Ren and Snavely, Noah},
+  booktitle=CVPR,
+  editor={Abhinav Gupta and Derek Hoiem and Gang Hua and Zhuowen Tu},
+  address = {Long Beach},
+  publisher = {Computer Vision Foundation / {IEEE}},
+  pages={175--184},
+  year={2019}
+}
+
+@article{zhou2018stereo,
+  title={Stereo magnification: Learning view synthesis using multiplane images},
+  author={Zhou, Tinghui and Tucker, Richard and Flynn, John and Fyffe, Graham and Snavely, Noah},
+  journal   = TOG,
+  volume = {37},
+  pages  = {65:1--65:12},
+  year={2018}
+}
+
+@inproceedings{porter1984compositing,
+  title={Compositing digital images},
+  author={Porter, Thomas and Duff, Tom},
+  editor    = {Hank Christiansen},
+  booktitle=SIGGRAPH,
+  address = {Minneapolis},
+  publisher = {{ACM}},
+  pages={253--259},
+  year={1984}
+}
+
+@inproceedings{sitzmann2019deepvoxels,
+  title={Deepvoxels: Learning persistent 3d feature embeddings},
+  author={Sitzmann, Vincent and Thies, Justus and Heide, Felix and Nie{\ss}ner, Matthias and Wetzstein, Gordon and Zollhofer, Michael},
+  booktitle=CVPR,
+  address = {Long Beach},
+  publisher = {Computer Vision Foundation / {IEEE}},
+  editor={Abhinav Gupta and Derek Hoiem and Gang Hua and Zhuowen Tu},
+  pages={2437--2446},
+  year={2019}
+}
+
+@book{goodfellow2016deep,
+  title={Deep learning},
+  author={Goodfellow, Ian and Bengio, Yoshua and Courville, Aaron and Bengio, Yoshua},
+  volume={1},
+  number={2},
+  year={2016},
+  publisher={MIT press Cambridge}
+}
+
+@article{hinton2009deep,
+  title={Deep belief networks},
+  author={Hinton, Geoffrey E},
+  journal={Scholarpedia},
+  volume={4},
+  pages={5947},
+  year={2009}
+}
+
+@article{rumelhart1986learning,
+  title={Learning representations by back-propagating errors},
+  author={Rumelhart, David E and Hinton, Geoffrey E and Williams, Ronald J},
+  journal={Nature},
+  volume={323},
+  pages={533--536},
+  year={1986}
+}
+
+@article{lecun1995convolutional,
+  title={Convolutional networks for images, speech, and time series},
+  author={LeCun, Yann and Bengio, Yoshua and others},
+  journal={The handbook of brain theory and neural networks},
+  volume={3361},
+  pages={1995},
+  year={1995}
+}
+
+@inproceedings{glorot2011deep,
+  title={Deep sparse rectifier neural networks},
+  author={Glorot, Xavier and Bordes, Antoine and Bengio, Yoshua},
+  booktitle={International Conference on Artificial Intelligence and Statistics (AISTATS)},
+  editor    = {Geoffrey J. Gordon and
+  David B. Dunson and
+  Miroslav Dud{\'{\i}}k},
+  address = {Fort Lauderdale},
+  publisher = {JMLR.org},
+  pages={315--323},
+  year={2011}
+}
+
+@inproceedings{2012ImageNet,
+  title={ImageNet Classification with Deep Convolutional Neural Networks},
+  author={ Krizhevsky, Alex  and  Sutskever, I.  and  Hinton, G. },
+  editor = {Peter L. Bartlett and
+  Fernando C. N. Pereira and
+  Christopher J. C. Burges and
+  L{\'{e}}on Bottou and
+  Kilian Q. Weinberger},
+  address = {Lake Tahoe},
+  pages = {1106--1114},
+  publisher = {Curran Associates, Inc.},
+  booktitle=NIPS,
+  year={2012},
+}
+
+@inproceedings{simonyan2014very,
+	author = {Karen Simonyan and Andrew Zisserman},
+	booktitle = ICLR,
+	editor = {Yoshua Bengio and Yann LeCun},
+	publisher = ICLR,
+	address = {San Diego},
+	title = {Very Deep Convolutional Networks for Large-Scale Image Recognition},
+	year = {2015}
+}
+
+@article{srivastava2015highway,
+  title={Highway networks},
+  author={Srivastava, Rupesh Kumar and Greff, Klaus and Schmidhuber, J{\"u}rgen},
+  journal={ArXiv},
+  volume = {abs/1505.00387},
+  year={2015}
+}
+
+@inproceedings{he2016deep,
+  title={Deep residual learning for image recognition},
+  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle=CVPR,
+  address = {Las Vegas},
+  publisher = {{IEEE} Computer Society},
+  editor = {Lourdes Agapito and Tamara Berg and Jana Kosecka and Lihi Zelnik-Manor},
+  pages={770--778},
+  year={2016}
+}
+
+@inproceedings{lin2019justlookup,
+  title={Justlookup: One millisecond deep feature extraction for point clouds by lookup tables},
+  author={Lin, Hongxin and Xiao, Zelin and Tan, Yang and Chao, Hongyang and Ding, Shengyong},
+  booktitle={IEEE International Conference on Multimedia and Expo (ICME)},
+  address = {Shanghai},
+  publisher = {{IEEE}},
+  editor = {Jun Wu and Marta Mrak and Zhu Li and Honggang Wang and Lei Zhang and Roger Zimmermann},
+  pages={326--331},
+  year={2019}
+}
+
+@inproceedings{rahaman2019spectral,
+  title={On the spectral bias of neural networks},
+  author={Rahaman, Nasim and Baratin, Aristide and Arpit, Devansh and Draxler, Felix and Lin, Min and Hamprecht, Fred and Bengio, Yoshua and Courville, Aaron},
+  booktitle=ICML,
+  address = {Long Beach},
+  publisher = {{PMLR}},
+  editor = {Kamalika Chaudhuri and Ruslan Salakhutdinov},
+  pages={5301--5310},
+  year={2019}
+}
+
+@article{levoy1990efficient,
+  title={Efficient ray tracing of volume data},
+  author={Levoy, Marc},
+  journal=TOG,
+  volume={9},
+  pages={245--261},
+  year={1990}
+}
+
+@article{lorensen1987marching,
+  title={Marching cubes: A high resolution 3D surface construction algorithm},
+  author={Lorensen, William E and Cline, Harvey E},
+  journal=SIGGRAPH,
+  volume={21},
+  pages={163--169},
+  year={1987}
+}
+
+@inproceedings{kingma2014adam,
+	author = {Diederik P. Kingma and Jimmy Ba},
+	booktitle = ICLR,
+	publisher = ICLR,
+	address={San Diego},
+	editor = {Yoshua Bengio and Yann LeCun},
+	title = {Adam: {A} Method for Stochastic Optimization},
+	year = {2015}
+}
+
+@article{wang2004image,
+  title={Image quality assessment: from error visibility to structural similarity},
+  author={Wang, Zhou and Bovik, Alan C and Sheikh, Hamid R and Simoncelli, Eero P},
+  journal={IEEE Transactions on Image Processing (TIP)},
+  volume={13},
+  pages={600--612},
+  year={2004}
+}
+
+@inproceedings{zhang2018unreasonable,
+  title={The unreasonable effectiveness of deep features as a perceptual metric},
+  author={Zhang, Richard and Isola, Phillip and Efros, Alexei A and Shechtman, Eli and Wang, Oliver},
+  booktitle=CVPR,
+  address = {Salt Lake City},
+  publisher = {{IEEE} Computer Society},
+  editor={David Forsyth and Ivan Laptev and Deva Ramanan and Aude Oliva},
+  pages={586--595},
+  year={2018}
+}
+
+@inproceedings{schonberger2016structure,
+  title={Structure-from-motion revisited},
+  author={Schonberger, Johannes L and Frahm, Jan-Michael},
+  booktitle=CVPR,
+  address = {Las Vegas},
+  publisher = {{IEEE} Computer Society},
+  editor = {Lourdes Agapito and Tamara Berg and Jana Kosecka and Lihi Zelnik-Manor},
+  pages={4104--4113},
+  year={2016}
+}

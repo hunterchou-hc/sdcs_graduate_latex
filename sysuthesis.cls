@@ -319,7 +319,7 @@
     \geometry{
       margin     = 3cm,
       headheight = 0.5cm,
-      headsep    = 0.3cm,
+      headsep    = 0.5cm,
       footskip   = 0.8cm,
     }%
   \fi
@@ -1561,11 +1561,16 @@
     \CJKfamily+{}\chuhao\zhongsong
     \textbf{\sysu@degree@name 学位论文}\par
   \endgroup
-  \vskip 2cm
-  \sysu@underline[12cm]{\xiaoer\sysu@title}\par
-  \vskip 1.8cm
-  \sysu@underline[12cm]{\xiaoer\sysu@title@en}\par
-  \vskip 2cm
+  \vskip 1cm
+  \begingroup
+  \begin{tabular}{p{13cm}}
+      {\parbox[t][2cm][c]{13cm}{\noindent\centering\xiaoer\sysu@title}}\\
+    \hline
+      {\parbox[t][2cm][c]{13cm}{\noindent\centering\xiaoer\sysu@title@en}}\\
+    \hline
+  \end{tabular}\par
+  \vskip 1.5cm
+  \endgroup
   \begingroup
     \noindent\sihao\kaishu
     \begin{center}
@@ -1576,7 +1581,7 @@
         专业名称:\ \ \sysu@underline[5.9cm]{\sysu@discipline}
     \end{center}
   \endgroup
-  \vskip 2cm
+  \vfill
   \begingroup
     \centering
     {\kaishu\sihao\sysu@format@date{\sysu@date@zh@digit}{\sysu@date}}\par
@@ -1605,11 +1610,22 @@
     \CJKfamily+{}\xiaochu
     \sysu@underline[4.5cm]{工程 }\textbf{\sysu@degree@name\ifsysu@degree@type@professional 专业\fi 学位论文}\par
   \endgroup
-  \vskip 2cm
-  \sysu@underline[12cm]{\xiaoer\sysu@title}\par
-  \vskip 1.8cm
-  \sysu@underline[12cm]{\xiaoer\sysu@title@en}\par
-  \vskip 2cm
+  \vskip 1cm
+  \begingroup
+  \begin{tabular}{p{13cm}}
+      {\parbox[t][2cm][c]{13cm}{\noindent\centering\xiaoer\sysu@title}}\\
+    \hline
+      {\parbox[t][2cm][c]{13cm}{\noindent\centering\xiaoer\sysu@title@en}}\\
+    \hline
+  \end{tabular}\par
+  \vskip 1.5cm
+  \endgroup
+
+  % \vskip 2cm
+  % \sysu@underline[12cm]{\xiaoer\sysu@title}\par
+  % \vskip 1.8cm
+  % \sysu@underline[12cm]{\xiaoer\sysu@title@en}\par
+  % \vskip 2cm
   \begingroup
     \noindent\sihao\kaishu
     \begin{center}
@@ -1620,7 +1636,7 @@
         专业、领域名称:\ \ \sysu@underline[5.0cm]{\sysu@discipline}
     \end{center}
   \endgroup
-  \vskip 2cm
+  \vfill
   \begingroup
     \centering
     {\kaishu\sihao\sysu@format@date{\sysu@date@zh@digit}{\sysu@date}}\par
@@ -1657,16 +1673,13 @@
   \begingroup
     \centering
     \sysu@thesis@type
-    \vskip 0.85cm%
+    \vskip 0.8cm%
     {\sysu@titlepage@title}%
     {\sysu@titlepage@title@en}%
     \vfill
     \parbox[t][8.25cm][t]{\textwidth}{\centering\sysu@titlepage@info}\par
+    \vfill
     \parbox[t][1cm][b]{\textwidth}{\centering\sysu@titlepage@date}\par
-    \vskip 1cm%
-    \parbox[t][2cm][t]{\textwidth}{%
-      \hskip -0.69cm%
-    }\par
   \endgroup
   \thispagestyle{empty}
   \clearpage
@@ -1731,13 +1744,13 @@
     \begingroup
     \linespread{1.1}
     \xiaosan\songti
-    \begin{tabular}{ p{6cm} @{  } p{9cm} }
+    \begin{tabular}{ p{6cm} @{\ \ } p{9cm} }
         \hfill 专业:\  & \sysu@underline[6cm]{\sysu@discipline} \\
         \hfill 学位申请人:\  & \sysu@underline[6cm]{\sysu@author} \\
         \hfill 指导教师:\  & \sysu@underline[6cm]{\sysu@supervisor\ \sysu@supervisor@title} \\
     \end{tabular}\par
-    \vspace{1cm}
-    \begin{tabular}{ p{6cm} @{  } p{9cm} }
+    \vspace{.8cm}
+    \begin{tabular}{ p{6cm} @{\ \ } p{9cm} }
         \hfill 论文答辩委员会主席:\  & \sysu@underline[6cm]{\sysu@committee@chair} \\
         \hfill 成员:\  & \sysu@underline[6cm]{\sysu@committee@one} \\
         \hfill & \sysu@underline[6cm]{\sysu@committee@two} \\
