@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.26)  6 APR 2021 15:51
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.3.26)  10 APR 2021 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,9 +858,6 @@ Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 13.
 \c@sysu@bookmark=\count371
  (./main.aux
 
-LaTeX Warning: Label `eq:nerf_loss' multiply defined.
-
-
 LaTeX Warning: Label `equations' multiply defined.
 
 
@@ -1239,16 +1236,16 @@ File: figures/nerf_io.pdf Graphic file (type pdf)
 ] [18] [19]
 File: figures/fnerf.pdf Graphic file (type pdf)
 <use figures/fnerf.pdf>
- [20]
+ [20] [21]
 File: figures/lookuptable.pdf Graphic file (type pdf)
 <use figures/lookuptable.pdf>
- [21] [22]
+ [22]
 File: figures/legomesh_gray_complete.png Graphic file (type bmp)
 <figures/legomesh_gray_complete.png>
- [23] [24]
+ [23] [24] [25]
 File: figures/cloud.jpg Graphic file (type bmp)
 <figures/cloud.jpg>
- [25] [26] [27]) (./data/chap04.tex
+ [26] [27]) (./data/chap04.tex
 第四章
 [28
 
@@ -1259,58 +1256,72 @@ File: figures/Chairs.pdf Graphic file (type pdf)
 <use figures/Chairs.pdf>
 File: figures/T-Rex.pdf Graphic file (type pdf)
 <use figures/T-Rex.pdf>
- [29] [30] [31]
+ [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
+
+ []
+
 File: figures/synthetic.pdf Graphic file (type pdf)
 <use figures/synthetic.pdf>
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 88.
+(Font)              scaled to size 7.00075pt on input line 90.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 88.
+(Font)              scaled to size 5.00053pt on input line 90.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 88.
+(Font)              scaled to size 6.99925pt on input line 90.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 88.
+(Font)              scaled to size 4.99947pt on input line 90.
 LaTeX Font Info:    Font shape `TU/CourierNew(1)/m/n' will be
-(Font)              scaled to size 7.40417pt on input line 88.
+(Font)              scaled to size 7.40417pt on input line 90.
 LaTeX Font Info:    Font shape `TU/CourierNew(1)/m/n' will be
-(Font)              scaled to size 5.2887pt on input line 88.
- [32]
-Underfull \hbox (badness 2245) in paragraph at lines 120--121
-[]\TU/SimSun(0)/m/n/12.045 下 面 介 绍 本 文 的 实 验 结 果 与 分 析 部 分。|  我 们 分 别 在 公 开 的 合
+(Font)              scaled to size 5.2887pt on input line 90.
+[32]
+Underfull \hbox (badness 2245) in paragraph at lines 122--123
+[]\TU/SimSun(0)/m/n/12.045 下 面 介 绍 本 文 的 实 验 结 果 与 分 析 部 分。|  本 文 分 别 在 公 开 的 合
  成 数 据 集
  []
 
-[33]
+[33] [34]
 File: figures/llff.pdf Graphic file (type pdf)
 <use figures/llff.pdf>
- [34] [35] [36]) (./data/chap05.tex
+ [35] [36] [37]) (./data/chap05.tex
 第五章
 File: figures/system_struct.png Graphic file (type bmp)
 <figures/system_struct.png>
-[37
+[38
 
 
 
-] [38]
+] [39]
 File: figures/usercase.pdf Graphic file (type pdf)
 <use figures/usercase.pdf>
- [39] [40] [41]
+ [40] [41] [42]
 File: figures/system_design_revised.png Graphic file (type bmp)
 <figures/system_design_revised.png>
- [42]
+ [43]
 File: figures/code-pytorch-big.png Graphic file (type bmp)
 <figures/code-pytorch-big.png>
 File: figures/code-cpp-big.png Graphic file (type bmp)
 <figures/code-cpp-big.png>
- [43] [44] [45]) (./data/chap06.tex
+ [44] [45] [46]) (./data/chap06.tex
 第六章
 File: figures/system-hardware.jpg Graphic file (type bmp)
 <figures/system-hardware.jpg>
-[46
+[47
 
 
 
-] [47] [48]
+] [48] [49]
 File: figures/system/1-a.png Graphic file (type bmp)
 <figures/system/1-a.png>
 File: figures/system/1-b.png Graphic file (type bmp)
@@ -1323,7 +1334,7 @@ File: figures/system/1-e.png Graphic file (type bmp)
 <figures/system/1-e.png>
 File: figures/system/1-f.png Graphic file (type bmp)
 <figures/system/1-f.png>
- [49]
+ [50]
 File: figures/system/2-a.png Graphic file (type bmp)
 <figures/system/2-a.png>
 File: figures/system/2-b.png Graphic file (type bmp)
@@ -1332,7 +1343,7 @@ File: figures/system/2-c.png Graphic file (type bmp)
 <figures/system/2-c.png>
 File: figures/system/2-d.png Graphic file (type bmp)
 <figures/system/2-d.png>
- [50] [51] [52]
+ [51] [52] [53]
 File: figures/system/3-a.png Graphic file (type bmp)
 <figures/system/3-a.png>
 File: figures/system/3-b.png Graphic file (type bmp)
@@ -1349,25 +1360,22 @@ File: figures/system/3-g.png Graphic file (type bmp)
 <figures/system/3-g.png>
 File: figures/system/3-h.png Graphic file (type bmp)
 <figures/system/3-h.png>
- [53] [54]) (./data/chap07.tex
+ [54] [55]) (./data/chap07.tex
 第七章
-[55
+[56
 
 
 
-]) [56]
+]) [57]
 \openout3 = `bu.aux'.
 
- (./main.bbl [57
+ (./main.bbl [58
 
 
 
 
-] [58] [59] [60] [61]) (./data/works.tex [62])
-(./data/acknowledgements.tex [63
-
-
-]) [64
+] [59] [60] [61] [62]) (./data/works.tex [63])
+[64
 
 
 ] (./main.aux (./bu.aux))
@@ -1375,14 +1383,14 @@ File: figures/system/3-h.png Graphic file (type bmp)
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0EB26AACCFF124C5A2E62893C50D1FFA;10226.
+(rerunfilecheck)             Checksum: 6DFA1891381A60D32299AE700C167664;10229.
  ) 
 Here is how much of TeX's memory you used:
- 28972 strings out of 476930
- 594240 string characters out of 5825868
- 1046043 words of memory out of 5000000
- 48277 multiletter control sequences out of 15000+600000
- 417308 words of font info for 276 fonts, out of 8000000 for 9000
+ 28968 strings out of 476930
+ 593594 string characters out of 5825868
+ 1046122 words of memory out of 5000000
+ 48269 multiletter control sequences out of 15000+600000
+ 417356 words of font info for 282 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  114i,17n,139p,1930b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
