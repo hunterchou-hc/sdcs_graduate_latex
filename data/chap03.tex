@@ -64,7 +64,7 @@ NeRF 同时优化两个神经网络：一个是 coarse 网络，另一个是 fin
     \hat{C}_{c}\left(\symbf{r}\right) = \sum_{i=1}^{N_c}w_{i}c_{i}, w_{i} = T_{i}\left(1 - \exp \left(-\sigma_{i}\delta_{i}\right)\right).
     \label{eq:weight}
 \end{equation}
-将上述权重进行归一化$\displaystyle \hat{w}_{i} = \frac{w_i}{\sum_{j=1}^{N_c}w_j}$可以生成一个沿着相机光线分段常数的概率密度函数。我们使用逆变换采样从该分布中采样第二组$\displaystyle N_f$个位置，最终使用公式~\ref{eq:getcolor} 来计算最终沿着光线渲染的颜色，此时使用所有$\displaystyle N_c + N_f$个采样点。
+将上述权重进行归一化$\displaystyle \hat{w}_{i} = \frac{w_i}{\sum_{j=1}^{N_c}w_j}$可以生成一个沿着相机光线分段常数的概率密度函数。然后使用逆变换采样从该分布中采样第二组$\displaystyle N_f$个位置，最终使用公式~\ref{eq:getcolor} 来计算最终沿着光线渲染的颜色，此时使用所有$\displaystyle N_c + N_f$个采样点。
 
 由于优化的是两个网络，因此对于一个 batch 的光线集合$\mathcal{R}$，整个 NeRF 的 loss 可以表示为：
 \begin{equation}
@@ -105,22 +105,22 @@ NeRF 同时优化两个神经网络：一个是 coarse 网络，另一个是 fin
 
 本节将详细介绍前一节中查询表的构建，主要介绍查询表的数据类型，生成方式，快速索引的方法，以及如何压缩 NeRF 的网络。
 
-如图~\ref{fig:lookuptable} 所示，本文主要的构建方法是首先训练一个逐点网络，即使用 NeRF 的原网络进行预训练，将网络的前四层全连接层提取出来，我们可以得到一个逐点函数$\mathcal{G}$，类似justlookup\cite{lin2019justlookup}，我们使用查询表技术并利用数组索引的方法能够快速地获得近似的函数$\hat{\mathcal{G}}$。
+如图~\ref{fig:lookuptable} 所示，本文主要的构建方法是首先训练一个逐点网络，即使用 NeRF 的原网络进行预训练，将网络的前四层全连接层提取出来，可以得到一个逐点函数$\mathcal{G}$，类似justlookup\cite{lin2019justlookup}，然后使用查询表技术并利用数组索引的方法能够快速地获得近似的函数$\hat{\mathcal{G}}$。
 
-详细地，由前面的理论可知，我们可以用相机光线$\symbf{r}\left(t\right) = \symbf{o} + t \symbf{d}, t \in \left[t_n, t_f\right]$表示一组采样点的集合，为了使用方便，事先对光线的坐标范围进行尺度缩放，使得
+详细地，由前面的理论可知，可以用相机光线$\symbf{r}\left(t\right) = \symbf{o} + t \symbf{d}, t \in \left[t_n, t_f\right]$表示一组采样点的集合，为了使用方便，事先对光线的坐标范围进行尺度缩放，使得
 $\forall t \in  \left[t_n, t_f\right], \symbf{r}\left(t\right) \in \left[-1, 1\right]^3$。
 
 为表示方便，先忽略位置编码函数$\gamma\left(\cdot\right)$的作用，假设逐点网络输入的是三维坐标点，那么可以将上述的映射$\mathcal{G}$表示为$\mathcal{G}: \mathbb{R}^3 \Rightarrow \mathbb{R}^l$， 其中$l$在是第四层全连接网络输出变量的个数，在本文中$l = 256$。更具体地，$\mathcal{G}$是由四层 MLP 实现的，每一层的输出的数目均是256。
 
-为了学习$\mathcal{G}$，我们利用原网络剩下的部分记为 Model 。使用公式~\ref{eq:nerf_loss} 中的均方误差联合优化这个端到端的网络，最终得到三元函数$\mathcal{G}$。一旦我们获得了$\mathcal{G}$，我们就可以通过构建一个查询表来获得近似的函数$\hat{\mathcal{G}}$。
+为了学习$\mathcal{G}$，本文利用原网络剩下的部分，并记为 Model 。使用公式~\ref{eq:nerf_loss} 中的均方误差联合优化这个端到端的网络，最终得到三元函数$\mathcal{G}$。一旦获得了$\mathcal{G}$，我们就可以通过构建一个查询表来获得近似的函数$\hat{\mathcal{G}}$。
 
-显然，我们现在的最重要的一步是为$\mathcal{G}$构建查询表。为了方便，我们还是假设输入被缩放到一个固定大小的立方体$\mathcal{V}$里，其中$\mathcal{V} = \left[-1, 1\right]^3$。接着将$\mathcal{V}$分成规则的$M^3$个相等的体素块。那么每一个体素的边长则为$\Delta = \frac{2}{M}$。
+显然，到目前为止，最重要的一步是为$\mathcal{G}$构建查询表。为了方便，本文还是假设输入被缩放到一个固定大小的立方体$\mathcal{V}$里，其中$\mathcal{V} = \left[-1, 1\right]^3$。接着将$\mathcal{V}$分成规则的$M^3$个相等的体素块。那么每一个体素的边长则为$\Delta = \frac{2}{M}$。
 % 那么因此立方体$\mathcal{V}$则被分成了：
 % \begin{equation}
 %     \mathcal{V} = \bigcup_{i,j,k}\left[i\Delta, \left(i + 1\right)\Delta\right] \times \left[j\Delta, \left(j + 1\right)\Delta\right] \times \left[k\Delta, \left(k + 1\right)\Delta\right], \mbox{其中} \left(i, j, k\right) \in \left[0, M\right]^3.
 % \end{equation}
 
-区别于justlookup\cite{lin2019justlookup}，我们并没有采取$T\left[i\right]\left[j\right]\left[k\right] = \mathcal{G}\left(i\Delta, j\Delta, k\Delta\right), \left(i, j, k\right) \in \left[0, M\right]^3$，即存下所有格点所对应的特征，这样在 NeRF 这样细粒度的渲染工作中几乎是不可取的。实际中，我们需要使用 float32 的数据类型去存储，那么总内存开销就会达到$32M^{3}l bits$，以$l = 256, M = 256$为例，则需要$\SI{16}{GB}$的内存，随着查询表的边长$M$增加，内存是以三次方的速度在增长，这在实际操作中是不可行的。
+区别于justlookup\cite{lin2019justlookup}，本文并没有采取$T\left[i\right]\left[j\right]\left[k\right] = \mathcal{G}\left(i\Delta, j\Delta, k\Delta\right), \left(i, j, k\right) \in \left[0, M\right]^3$，即存下所有格点所对应的特征，这样在 NeRF 这样细粒度的渲染工作中几乎是不可取的。实际中，一般需要使用 float32 的数据类型去存储，那么总内存开销就会达到$32M^{3}l bits$，以$l = 256, M = 256$为例，则需要$\SI{16}{GB}$的内存，随着查询表的边长$M$增加，内存是以三次方的速度在增长，这在实际操作中是不可行的。
 
 \begin{figure}[b]
     \centering
@@ -129,34 +129,34 @@ $\forall t \in  \left[t_n, t_f\right], \symbf{r}\left(t\right) \in \left[-1, 1\r
     \label{fig:lego_mesh}
 \end{figure}
 
-为此，我们必须采取相应的措施去压缩查询表。受 DeepSDF \cite{park2019deepsdf}的启发，在 DeepSDF 这篇工作中，可以通过输出的 SDF 值，利用 marching cubes 算法\cite{lorensen1987marching}重建物体的几何结构，类似地，我们知道 SDF 的物理含义是某一三维坐标点到物体表面的最短距离，负值表示在物体内部，正值表示在物体外部，零值则是物体表面；那么，NeRF 输出的体密度信息也有着相似的性质，体密度的物理含义是相机光线终止于某一点的概率，那么同样地，体密度为零值也可以表征物体的表面， 图~\ref{fig:lego_mesh} 就是用 NeRF 模型提出 lego 的 mesh 结构。根据公式~\ref{eq:weight} 可以看出当体密度为负值时权重$w_i$是负值是没有意义的，这也与 NeRF 的处理方式相同，NeRF 在体密度输出的时候使用了 ReLU 函数，因此我们可以认为负值的体密度对渲染的贡献可以忽略。那么结合上一节，如果我们可以将采样点约束在物体表面附近，那么将能获得更好的渲染效果，这可以补偿减少一个网络带来的质量下降。
+为此，必须采取相应的措施去压缩查询表。受 DeepSDF \cite{park2019deepsdf}的启发，在 DeepSDF 这篇工作中，可以通过输出的 SDF 值，利用 marching cubes 算法\cite{lorensen1987marching}重建物体的几何结构，类似地，我们知道 SDF 的物理含义是某一三维坐标点到物体表面的最短距离，负值表示在物体内部，正值表示在物体外部，零值则是物体表面；那么，NeRF 输出的体密度信息也有着相似的性质，体密度的物理含义是相机光线终止于某一点的概率，那么同样地，体密度为零值也可以表征物体的表面， 图~\ref{fig:lego_mesh} 就是用 NeRF 模型提出 lego 的 mesh 结构。根据公式~\ref{eq:weight} 可以看出当体密度为负值时权重$w_i$是负值是没有意义的，这也与 NeRF 的处理方式相同，NeRF 在体密度输出的时候使用了 ReLU 函数，因此可以认为负值的体密度对渲染的贡献可以忽略。那么结合上一节，如果可以将采样点约束在物体表面附近，那么将能获得更好的渲染效果，这可以补偿减少一个网络带来的质量下降。
 
-基于以上的分析，我们假设正值的体密度表征物体的内部，接下来就可以对原查询表进行压缩。我们的目标是只存$\mathcal{V}$中输出的体密度大于零的格点，这样可以大大减少内存的开销。
+基于以上的分析，本文假设正值的体密度表征物体的内部，接下来就可以对原查询表进行压缩。目标是只存$\mathcal{V}$中输出的体密度大于零的格点，这样可以大大减少内存的开销。
 
-具体地，我们记从三维坐标点到输出体密度这一部分网络对应的函数为$\mathcal{Q}$，此时压缩后的查询表为：
+具体地，记从三维坐标点到输出体密度这一部分网络对应的函数为$\mathcal{Q}$，此时压缩后的查询表为：
 \begin{equation}
     T_{shrinked} = \left\{
     \mathcal{G}\left(i\Delta, j\Delta, k\Delta\right) | \mathcal{Q}\left(i\Delta, j\Delta, k\Delta \right)  > 0, \left(i, j, k\right) \in \left[0, M\right]^3 
     \right\}.
 \end{equation}
-至此，我们获得了最终的查询表，由于此查询表是不规则的，或者可以认为是稀疏矩阵，因此索引此查询表也跟常规的方法不同，接下来将详细介绍经过压缩后的查询表的索引。
+至此，已经获得了最终的查询表，由于此查询表是不规则的，或者可以认为是稀疏矩阵，因此索引此查询表也跟常规的方法不同，接下来将详细介绍经过压缩后的查询表的索引。
 
-对于$ T_{shrinked}$ 的存的每一个格点$\left(i\Delta, j\Delta, j\Delta\right)$, 我们必须将每一个常规索引$\left(i, j, k\right)$ encode 到一个唯一值 code ，换句话说，我们的目标是使得$\mathcal{V}$中的任何一个格点对应的code都是不重复的。为此，我们可以使用以下的映射方式：
+对于$ T_{shrinked}$ 的存的每一个格点$\left(i\Delta, j\Delta, j\Delta\right)$, 必须将每一个常规索引$\left(i, j, k\right)$ encode 到一个唯一值 code ，换句话说，我们的目标是使得$\mathcal{V}$中的任何一个格点对应的code都是不重复的。为此，可以使用以下的映射方式：
 \begin{equation}
     \mathcal{E}\left(i, j, k\right) = i + j\cdot M + k\cdot M \cdot M, \left(i, j, k\right) \in \left[0, M\right]^3,
 \end{equation}
 
 这个对索引的编码操作可以使得将$\mathcal{V}$中的所有格点都区分开。
 
-接下来，我们将建立一个 code 到 $T_{shrinked}$的查询表$\mathcal{H}$,。具体的建立方式为，
+接下来，本论文将建立一个 code 到 $T_{shrinked}$的查询表$\mathcal{H}$,。具体的建立方式为，
 \begin{enumerate}
     \item[a)] 首先建一个大小$size = M + M^2 + M^3$的查询表$\mathcal{H}$，使之能装下$\mathcal{V}$中所有格点；
     \item[b)] 按照$T_{shrinked}$对应的所有点的顺序，假设其中一个点对应的常规索引为$\left(i, j, k\right)$，该点在$T_{shrinked}$的位置为$index$对其使用 encode 操作得到$code = \mathcal{E}\left(i, j, k\right)$；
     \item[c)] 之后填充查询表$\mathcal{H}$，具体做法是$\mathcal{H}[code] = index$。
 \end{enumerate}
-严谨来说，非$T_{shrinked}$的点在索引时，其$code$ 可能会超过$T_{shrinked}$的索引范围，因此，我们必须处理此问题。具体做法是，在$T_{shrinked}$的最后面加一个哨兵，即增加一个$l$维的全零的向量，假设目前$T_{shrinked}$存了$S$个点对应的特征。而$\mathcal{H}$在初始化的时候，初始值都设置为$S-1$，即当$\left(i, j, k\right)$不在查询范围内时，其$code$可以通过$\mathcal{H}$映射到$S-1$，那么将获取$T_{shrinked}\left[S-1\right]$的值，从而得到一个鲁棒的索引过程。
+严谨来说，非$T_{shrinked}$的点在索引时，其$code$ 可能会超过$T_{shrinked}$的索引范围，因此，必须处理此问题。具体做法是，在$T_{shrinked}$的最后面加一个哨兵，即增加一个$l$维的全零的向量，假设目前$T_{shrinked}$存了$S$个点对应的特征。而$\mathcal{H}$在初始化的时候，初始值都设置为$S-1$，即当$\left(i, j, k\right)$不在查询范围内时，其$code$可以通过$\mathcal{H}$映射到$S-1$，那么将获取$T_{shrinked}\left[S-1\right]$的值，从而得到一个鲁棒的索引过程。
 
-至此，我们可以总结整个索引的过程。给定一个空间直角坐标系的三维坐标点$\left(x, y, z\right)$，首先通过下面式子计算其常规索引：
+至此，可以总结整个索引的过程。给定一个空间直角坐标系的三维坐标点$\left(x, y, z\right)$，首先通过下面式子计算其常规索引：
 \begin{equation}
     \left(i, j, k\right) = \left(\left \lfloor \frac{x + 1}{\Delta} \right \rfloor, \left \lfloor \frac{y + 1}{\Delta} \right \rfloor, \left \lfloor \frac{z + 1}{\Delta} \right \rfloor\right),
 \end{equation}
@@ -166,36 +166,43 @@ $\forall t \in  \left[t_n, t_f\right], \symbf{r}\left(t\right) \in \left[-1, 1\r
     T\left[i \right]\left[j \right]\left[k \right] = T_{shrinked} \left[\mathcal{H}\left[\mathcal{E}\left(i, j, k\right) \right] \right].
 \end{equation}
 
-最终，如果我们提前缓存了$T$，则可以使用$T\left[i \right]\left[j \right]\left[k \right]$的值去估计$\hat{\mathcal{G}}\left(x, y, z\right)$，因此$\hat{\mathcal{G}}$的将是非常快的，它的开销只取决于访问内存的时间。
+最终，如果提前缓存了$T$，则可以使用$T\left[i \right]\left[j \right]\left[k \right]$的值去估计$\hat{\mathcal{G}}\left(x, y, z\right)$，因此$\hat{\mathcal{G}}$的将是非常快的，它的开销只取决于访问内存的时间。
 
-显然，我们直接将$\hat{\mathcal{G}}$馈入到经过训练的模型 $Model$中会使渲染效果下降的，因为$\hat{\mathcal{G}}$并不完全正确
-等于$\mathcal{G}$，$\hat{\mathcal{G}}$仅仅是$\mathcal{G}$的一个近似。因此为了保持渲染质量不下降，我们在构建了查询表$T$后，需要基于$\hat{\mathcal{G}}$对$Model$进行再训练（或着叫微调），这一操作能显著提升渲染质量，在$M = 200$的时候甚至可以达到和原始 NeRF 质量相当的性能。图~\ref{fig:lookuptable} 表征了$\mathcal{G}$是如何由我们的方法实现的。
+显然，直接将$\hat{\mathcal{G}}$馈入到经过训练的模型 $Model$中会使渲染效果下降的，因为$\hat{\mathcal{G}}$并不完全正确
+等于$\mathcal{G}$，$\hat{\mathcal{G}}$仅仅是$\mathcal{G}$的一个近似。因此为了保持渲染质量不下降，在构建了查询表$T$后，需要基于$\hat{\mathcal{G}}$对$Model$进行再训练（或着叫微调），这一操作能显著提升渲染质量，在$M = 200$的时候甚至可以达到和原始 NeRF 质量相当的性能。图~\ref{fig:lookuptable} 表征了$\mathcal{G}$是如何由本文的方法实现的。至此，已经可以构建出最终的用于加速的查询表了，但是目前还没有使用到查询表所隐藏的几何信息，这在下一小节将详细阐述。
 
 \subsection{查询表与本文方法的结合}
-我们在上一小节详尽地叙述了查询表的创建过程，包含查询表的构建，索引，压缩，还有通过近似$\mathcal{G}$来进行加速，通过再学习将损失的质量调回原 NeRF 水平。接下来，本节将详细介绍查询表的第二重加速功能：将查询表应用于 NeRF 的采样过程。
+在上一小节详尽地叙述了查询表的创建过程，包含查询表的构建，索引，压缩，还有通过近似$\mathcal{G}$来进行加速，通过再学习将损失的质量调回原 NeRF 水平。接下来，本节将详细介绍查询表的第二重加速功能：将查询表引入几何信息并应用于 NeRF 的采样过程。
 
-如果只是使用查询表去近似$\mathcal{G}$，那么这并没有完全展现出本文最核心的方法。实际上，在上一小节中，我们不止做了这么多工作。我们都知道，在查询表的构建过程中，本文是对查询表进行了压缩的操作，这表面上只是为了减少查询表内存开销，事实上我们还应用了 NeRF 体密度的特性。
+如果只是使用查询表去近似$\mathcal{G}$，那么这并没有完全展现出本文最核心的方法。实际上，在上一小节中，本文不止做了这么多工作。众所周知，在查询表的构建过程中，本文是对查询表进行了压缩的操作，这表面上只是为了减少查询表内存开销，事实上本文还应用了 NeRF 体密度的特性，体密度有着类似符号距离函数的性质，能很大程度上表现物体的几何信息。
 
-由于我们是使用的体密度$\sigma > 0$这一阈值条件对$\mathcal{V}$中格点进行筛选，仅在$T_{shrinked}$中保留其体密度为正值的点所对应的特征（即$l$维向量），并且我们还在$T_{shrinked}$的最后放置了哨兵来表征没有查询到相应点的特征。
+由于本论文是使用的体密度$\sigma > 0$这一阈值条件对$\mathcal{V}$中格点进行筛选，仅在$T_{shrinked}$中保留其体密度为正值的点所对应的特征（即$l$维向量），并且本文还在$T_{shrinked}$的最后放置了哨兵来表征没有查询到点相应的特征，以此保障整个查询过程的稳定执行。
 
-因此，我们可以合理地使用$\mathcal{H}$和$T_{shrinked}$这两个查询表对输入的点进行判断，显然如果可查询到，则该点在物体内部，否则不在物体内部。具体地，由于设置了哨兵，我们实际可以只使用索引转换查询表$\mathcal{H}$对内外进行判断。对于任意的常规索引$\left(i, j, k\right) \in \left[-1, 1\right]^3$，计算$\mathcal{H}\left[\mathcal{E}\left(i, j, k\right)\right]$的查询结果，若结果为$S - 1$，则原世界坐标$\left(x, y, z\right)$则不在物体（场景）的内部，若结果不为$S - 1$，则在物体内部。
+因此，可以合理地使用$\mathcal{H}$和$T_{shrinked}$这两个查询表对输入的点进行判断，显然如果可查询到，则该点在物体内部，否则不在物体内部。具体地，由于设置了哨兵，实际上可以只使用索引转换查询表$\mathcal{H}$对内外进行判断。对于任意的常规索引$\left(i, j, k\right) \in \left[-1, 1\right]^3$，计算$\mathcal{H}\left[\mathcal{E}\left(i, j, k\right)\right]$的查询结果，若结果为$S - 1$，则原世界坐标$\left(x, y, z\right)$不在物体（场景）的内部，若结果不为$S - 1$，则在物体内部。采用这种方式可以十分简单快速地判断查询点在物体内还是物体外，这对采样过程的优化有着极大的作用。
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/cloud.jpg}
-    \caption{体绘制的采样示意图}
-    \label{fig:cloud}
-\end{figure}
+%\begin{figure}[htbp]
+%    \centering
+%    \includegraphics[width=0.75\textwidth]{figures/cloud.jpg}
+%    \caption{体绘制的采样示意图}
+%    \label{fig:cloud}
+%\end{figure}
 
 有了以上的理论基础，接下来将详尽阐述是如何利用查询表进行采样优化以及加速。
 
-针对前面两节的概述，我们知道，NeRF 是采用分层抽样的方法，即同时优化 coarse 网络和 fine 网络，通过 coarse 网络的输出去估计公式~\ref{eq:weight} 中的权重$\displaystyle w_i$的分布（概率密度函数），这是通过增加网络来提高渲染质量的方法。但同时也很显然，使用两个网络，那么时间开销会增加一倍。
+针对前面两节的概述，可以知道，NeRF 是采用分层抽样的方法，即同时优化 coarse 网络和 fine 网络，通过 coarse 网络的输出去估计公式~\ref{eq:weight} 中的权重$\displaystyle w_i$的分布（概率密度函数），这是通过增加网络来提高渲染质量的方法。但同时也很显然，使用两个网络，那么时间开销会增加一倍，这无法满足快速合成新视图系统的需求，因此必须要解决此问题。
 
-为了加速 NeRF ，我们的目标是去掉一个网络，仅使用一个网络来进行优化和渲染，但是这势必会使得渲染质量下降。考虑到 NeRF 使用两个网络是为了将采样点位置优化到物体周围，这一点启发了我们，如果使用上述的查询表将采样点约束到物体表面附近，那么渲染质量会比仅使用一个网络显著提升，通过实验证明本文的方法可以在几乎不损失渲染质量的情况下对 NeRF 的推理过程进行加速。下面是查询表是如何和本文方法进行融合的。
+为了加速 NeRF，目标是去掉一个网络，仅使用一个网络来进行优化和渲染，但是这势必会使得渲染质量下降。考虑到 NeRF 使用两个网络是为了将采样点位置优化到物体周围，这一点启发了我们，如果使用上述的查询表将采样点约束到物体表面附近，那么渲染质量会比仅使用一个网络显著提升，通过实验证明本文\begin{figure}[b]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/cloud.jpg}
+	\caption{体绘制的采样示意图}
+	\label{fig:cloud}
+\end{figure}\pagebreak 的方法可以在几乎不损失渲染质量的情况下对 NeRF 的推理过程进行加速。下面是查询表是如何和本文方法进行融合的，涉及具体的优化采样过程的细节。
 
-如图~\ref{fig:cloud} 所示的是体绘制的采样示意图。假设相机光线为$\symbf{r}\left(t\right) = \symbf{o} + t \symbf{d}$，并在$\left[t_n, t_f\right]$的范围内均匀采样$N$个点，深度记为$t_{1}, t_{2}, \cdots, t_{N}$，这些深度是递增的，对应的点的世界坐标为$\symbf{r}\left(t_{1}\right), \symbf{r}\left(t_{2}\right), \cdots, \symbf{r}\left(t_{N}\right)$。分别计算这些点的常规索引，以及编码之后的 code，通过这些 code 去查询$\mathcal{H}$，得到一个长度为$N$的 vector。之后按顺序对 vector 的每一个坐标值进行判断，若值均为$S - 1$，则说明该光线与物体没有交点，则采样点不需要优化，若存在值不为$S - 1$的，则说明光线和物体有交点，记第一个交点对应的深度值为$t_{mid}, mid \in \left\{1, 2, \cdots, N\right\}$。在有交点的情况下，我们需要重新设定采样区间长度为$L$，则新的采样区间为$\left[t_{mid} - L / 2, t_{mid} + L / 2\right]$，此区间能表征物体的表面附近，我们需要在此区间内重新均匀采样$N$个点，${t\prime}_{1}, {t\prime}_{2}, \cdots, {t\prime}_{N}$，然后就可以将$\symbf{r}\left(t\prime_{1}\right), \symbf{r}\left(t\prime_{2}\right), \cdots, \symbf{r}\left(t\prime_{N}\right)$这些采样点送入网络进行训练，最终实验证明使用了改进的采样方式，在我们减少一个网络的时候，可以保证渲染质量几乎不下降。
 
-最终，我们通过缓存一个查询表，成功地在不损失精度的情况下减少了一个网络的开销，对渲染过程进行了加速，那么因此，本文方法对应的 loss 函数变为：
+
+如图~\ref{fig:cloud} 所示的是体绘制的采样示意图。假设相机光线为$\symbf{r}\left(t\right) = \symbf{o} + t \symbf{d}$，并在$\left[t_n, t_f\right]$的范围内均匀采样$N$个点，深度记为$t_{1}, t_{2}, \cdots, t_{N}$，这些深度是递增的，对应的点的世界坐标为$\symbf{r}\left(t_{1}\right), \symbf{r}\left(t_{2}\right), \cdots, \symbf{r}\left(t_{N}\right)$。分别计算这些点的常规索引，以及编码之后的 code，通过这些 code 去查询$\mathcal{H}$，得到一个长度为$N$的 vector。之后按顺序对 vector 的每一个坐标值进行判断，若值均为$S - 1$，则说明该光线与物体没有交点，则采样点不需要优化，若存在值不为$S - 1$的，则说明光线和物体有交点，记第一个交点对应的深度值为$t_{mid}, mid \in \left\{1, 2, \cdots, N\right\}$。在有交点的情况下，需要重新设定采样区间长度为$L$，则新的采样区间为$\left[t_{mid} - L / 2, t_{mid} + L / 2\right]$，此区间能表征物体的表面附近，我们需要在此区间内重新均匀采样$N$个点，${t\prime}_{1}, {t\prime}_{2}, \cdots, {t\prime}_{N}$，然后就可以将$\symbf{r}\left(t\prime_{1}\right), \symbf{r}\left(t\prime_{2}\right), \cdots, \symbf{r}\left(t\prime_{N}\right)$这些采样点送入网络进行训练，最终实验证明使用了改进的采样方式，在减少一个网络的时候，可以保证渲染质量几乎不下降。
+
+最终，本论文通过缓存一个查询表，成功地在不损失精度的情况下减少了一个网络的开销，对渲染过程进行了加速，那么因此，本文方法对应的 loss 函数变为：
 \begin{equation}
     \mathcal{L} = \sum_{\symbf{r}\in \mathcal{R}}\left[\left\|\hat{C}\left(\symbf{r}\right) - C\left(\symbf{r}\right)\right\|_{2}^{2} \right].
     \label{eq:fnerf_loss}
