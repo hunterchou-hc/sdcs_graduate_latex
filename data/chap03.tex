@@ -193,7 +193,7 @@ $\forall t \in  \left[t_n, t_f\right], \symbf{r}\left(t\right) \in \left[-1, 1\r
 
 为了加速 NeRF，目标是去掉一个网络，仅使用一个网络来进行优化和渲染，但是这势必会使得渲染质量下降。考虑到 NeRF 使用两个网络是为了将采样点位置优化到物体周围，这一点启发了我们，如果使用上述的查询表将采样点约束到物体表面附近，那么渲染质量会比仅使用一个网络显著提升，通过实验证明本文\begin{figure}[b]
 	\centering
-	\includegraphics[width=0.75\textwidth]{figures/cloud.jpg}
+	\includegraphics[width=0.75\textwidth]{figures/cloud.pdf}
 	\caption{体绘制的采样示意图}
 	\label{fig:cloud}
 \end{figure}\pagebreak 的方法可以在几乎不损失渲染质量的情况下对 NeRF 的推理过程进行加速。下面是查询表是如何和本文方法进行融合的，涉及具体的优化采样过程的细节。

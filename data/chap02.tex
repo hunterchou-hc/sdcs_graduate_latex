@@ -55,7 +55,7 @@
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.9\linewidth]{figures/fc.png}
+  \includegraphics[width=0.85\linewidth]{figures/fc.pdf}
   \caption{神经网络示意图}
   \label{fig:neuralNetwork}
 \end{figure}
@@ -77,7 +77,7 @@
     
     对一张二维图像$X$，卷积层的输出可表示为
     \begin{equation}
-        y_{ij} = \sum_{u=1}^{m}\sum_{v=1}^{n}w_{uv} * x_{i-u+1,j-v+1},
+        y_{ij} = \sum_{u=1}^{m}\sum_{v=1}^{n}w_{uv} \cdot x_{i-u+1,j-v+1},
     \end{equation}
     其中$x$表示输入图像$X\in{R^{M\times N}}$的一个像素大小，$w$是卷积核$W \in R^{m\times n}$的参数，一般地$m << M$，$n << N$。
     二维卷积的示意图如图~\ref{fig:2dconv}。
@@ -106,7 +106,7 @@ Kaiming He 等人借鉴了 Highway Network\cite{srivastava2015highway} 的跨层
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/resnet.jpg}
-    \caption{典型的残差结构}
+    \caption{典型的残差结构\cite{he2016deep}}
     \label{fig:resnet}
 \end{figure}
 

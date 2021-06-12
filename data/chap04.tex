@@ -58,7 +58,7 @@
         c\left(\symbf{X}, \symbf{Y}\right) &= \frac{2\sigma_{x}\sigma_{y} + C_{2}}{\sigma_{x}^{2} + \sigma_{y}^{2} + C_{2}}, \\
         s\left(\symbf{X}, \symbf{Y}\right) &= \frac{\sigma_{xy} + C_{3}}{\sigma_{x}\sigma_{y} + C_{3}},
     \end{align}
-    这里的$l\left(\symbf{X}, \symbf{Y}\right)$、$c\left(\symbf{X}, \symbf{Y}\right)$ 和$s\left(\symbf{X}, \symbf{Y}\right)$分别是亮度、对比度、结构。此外，$\mu_{x}, \mu_{y}$是$\symbf{X}$和$\symbf{Y}$的均值，$\sigma_{x},\sigma_{y}$分别是$\symbf{X}$和$\symbf{Y}$的方差，$\sigma_{xy}$是$\symbf{X}, \symbf{Y}$的协方差。$C_{1} = \left(k_{1} \times 255\right)^{2}$，$C_{2} = \left(k_{2} \times 255\right)^{2}$，$C_3 = \frac{C_2}{2}$。其中，$k_1, k_2$一般取0.01和0.03。实验中，$\alpha$，$\beta$和$\gamma$均置为1。SSIM 的值越大，表明合成图像与真实图像结构越相似。\\
+    这里的$l\left(\symbf{X}, \symbf{Y}\right)$、$c\left(\symbf{X}, \symbf{Y}\right)$ 和$s\left(\symbf{X}, \symbf{Y}\right)$分别是亮度、对比度、结构。此外，$\mu_{x}, \mu_{y}$是$\symbf{X}$和$\symbf{Y}$的均值，$\sigma_{x}^2,\sigma_{y}^2$分别是$\symbf{X}$和$\symbf{Y}$的方差，$\sigma_{xy}$是$\symbf{X}, \symbf{Y}$的协方差。$C_{1} = \left(k_{1} \times 255\right)^{2}$，$C_{2} = \left(k_{2} \times 255\right)^{2}$，$C_3 = \frac{C_2}{2}$。其中，$k_1, k_2$一般取0.01和0.03。实验中，$\alpha$，$\beta$和$\gamma$均置为1。SSIM 的值越大，表明合成图像与真实图像结构越相似。\\
     \item [3)]感知相似度(Learned Perceptual Image Patch Similarity， LPIPS\cite{zhang2018unreasonable}) \\
     该指标是基于深度学习的度量方法，这是借助了深度学习能够提取到更细粒度的图像特征，并进行对比，该指标比 PSNR、SSIM 更能符合人类的感知情况。感知损失的计算方式为：
     \begin{equation}
